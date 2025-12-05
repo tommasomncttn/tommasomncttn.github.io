@@ -1,200 +1,227 @@
 {
   "basics": {
-    "name": "Albert Einstein",
-    "label": "Scientist",
-    "image": "",
-    "email": "albert@einstein.de",
-    "phone": "(912) 123-4567",
-    "url": "https://alshedivat.github.io/al-folio/",
-    "summary": "A German-born theoretical physicist, widely ranked among the greatest and most influential scientists of all time",
+    "name": "Tommaso Mencattini",
+    "label": "MSc Data Science Student & Researcher",
+    "email": "tommaso.mencattini@epfl.ch",
+    "url": "",
+    "summary": "MSc student in Data Science at EPFL with research experience at ISTA, ETH Zürich, and GLADIA. My work focuses on large language models, model merging, causal inference, and interpretability. First-author papers at ICML, ACL, and publications at NeurIPS workshops and ECAI.",
     "location": {
-      "address": "2712 Broadway St",
-      "postalCode": "CA 94115",
-      "city": "San Francisco",
-      "countryCode": "US",
-      "region": "California"
+      "city": "Lausanne",
+      "countryCode": "CH",
+      "region": "Switzerland"
     },
     "profiles": [
       {
-        "network": "Twitter",
-        "username": "AlbertEinstein",
-        "url": "https://twitter.com/AlbertEinstein"
+        "network": "GitHub",
+        "username": "tommasomncttn",
+        "url": "https://github.com/tommasomncttn"
+      },
+      {
+        "network": "LinkedIn",
+        "username": "tommasomencattini",
+        "url": "https://www.linkedin.com/in/tommasomencattini/"
       }
     ]
   },
+
   "work": [
     {
-      "name": "Institute for Advanced Study, Princeton University",
-      "position": "Professor of Theoretical Physics",
-      "url": "https://example.com",
-      "startDate": "1933-01-01",
-      "endDate": "1955-01-01",
-      "summary": "Teaching at Palmer Physical Laboratory (now 302 Frist Campus Center). While not a professor at Princeton, I associated with the physics professors and continued to give lectures on campus.",
-      "highlights": ["Relativity"]
-    }
-  ],
-  "volunteer": [
+      "name": "Institute of Science and Technology Austria (ISTA)",
+      "position": "Research Intern",
+      "url": "https://ista.ac.at",
+      "location": "Vienna, Austria",
+      "startDate": "2025-07-01",
+      "endDate": "",
+      "summary": "Research in causal learning and multimodal foundation models within the Locatello Group.",
+      "highlights": [
+        "Co-first author for a paper on unsupervised causal effect discovery in RCTs (theory + library).",
+        "Developing frameworks combining causality and deep learning for large-scale multimodal systems."
+      ]
+    },
     {
-      "organization": "People's Climate March",
+      "name": "GLADIA · Sapienza University of Rome",
+      "position": "Research Student",
+      "url": "https://gladia.ai",
+      "location": "Rome, Italy",
+      "startDate": "2024-04-01",
+      "endDate": "",
+      "summary": "Research on scalable model merging, interpretability, and ability estimation for large language models.",
+      "highlights": [
+        "Scaled evolutionary model merging using consumer GPUs (50× speedup, 2% data usage, 85% performance retained).",
+        "Two first-author papers accepted to ICML 2025 and ACL 2025.",
+        "Co-first author for a paper proving injectivity of LLM representations and presenting the first exact inversion algorithm (viral tweet with 4.7M views)."
+      ]
+    },
+    {
+      "name": "ETH Zürich (LRE Lab)",
+      "position": "Research Student",
+      "url": "https://ethz.ch",
       "location": "Zurich, Switzerland",
-      "position": "Lead Organizer",
-      "url": "https://example.com",
-      "startDate": "2014-04-01",
-      "endDate": "2015-07-01",
-      "summary": "Lead organizer for the New York City branch of the People's Climate March, the largest climate march in history.",
-      "highlights": ["Awarded 'Climate Hero' award by Greenpeace for my efforts organizing the march.", "Men of the year 2014 by Time magazine"]
+      "startDate": "2023-06-01",
+      "endDate": "2023-08-31",
+      "summary": "Applied causal inference to explain and assess LLM performance on math word problems.",
+      "highlights": [
+        "Worked on applying causal inference techniques to large language models to detect spurious heuristics in reasoning tasks.",
+        "Ran large-scale experiments on high-performance computing clusters."
+      ]
+    },
+    {
+      "name": "Vrije Universiteit Amsterdam · KAI Lab",
+      "position": "Research Assistant",
+      "url": "https://vu.nl",
+      "location": "Amsterdam, Netherlands",
+      "startDate": "2023-01-01",
+      "endDate": "2023-06-01",
+      "summary": "Research at the intersection of knowledge graphs and hallucination mitigation in LLMs.",
+      "highlights": [
+        "Designed Text-to-Graph and Graph-to-Text methods for content planning.",
+        "Trained and evaluated multiple knowledge-graph-integrated LLMs."
+      ]
+    },
+    {
+      "name": "Sapienza University of Rome",
+      "position": "Research Student",
+      "url": "https://www.uniroma1.it",
+      "location": "Rome, Italy",
+      "startDate": "2022-07-01",
+      "endDate": "2023-04-01",
+      "summary": "NLP research in e-justice applications using specialized large language models.",
+      "highlights": [
+        "Developed GPT-2-based writing assistant for legal documents.",
+        "Publication at ECAI 2023 (CICERO project).",
+        "Conducted evaluation with legal professionals."
+      ]
+    },
+    {
+      "name": "Network Institute VU Amsterdam",
+      "position": "Technology Assistant",
+      "url": "https://networkinstitute.org",
+      "location": "Amsterdam, Netherlands",
+      "startDate": "2022-05-01",
+      "endDate": "2022-12-01",
+      "summary": "Technical support for interdisciplinary projects in XR, VR, and motion capture.",
+      "highlights": [
+        "Worked with Unity, C#, iClone, Motive, and Optitrack.",
+        "Organized and presented at Surf XR-On Tour and Reshaping Work 2022 Conference."
+      ]
     }
   ],
+
+  "volunteer": [
+    
+  ],
+
   "education": [
     {
-      "institution": "University of Zurich, Zurich, Switzerland",
-      "location": "Zurich, Switzerland",
-      "url": "https://www.uzh.ch/",
-      "area": "Software Development",
-      "studyType": "PhD",
-      "startDate": "1905-01-01",
-      "endDate": "1905-01-01",
-      "score": "10",
-      "courses": ["Theory of Relativity"]
+      "institution": "École Polytechnique Fédérale de Lausanne (EPFL)",
+      "location": "Lausanne, Switzerland",
+      "area": "Data Science",
+      "studyType": "Master of Science",
+      "url": "https://epfl.ch",
+      "startDate": "2024-09-01",
+      "endDate": "",
+      "score": "GPA: 5.5/6",
+      "courses": [
+        "Coursework focused on the Mathematics of data science"
+      ]
+    },
+    {
+      "institution": "Vrije Universiteit Amsterdam",
+      "location": "Amsterdam, Netherlands",
+      "area": "Artificial Intelligence (Major) & Mathematics (Minor)",
+      "studyType": "Bachelor of Science",
+      "startDate": "2021-09-01",
+      "endDate": "2024-07-01",
+      "score": "GPA: 9.2/10",
+      "courses": [
+        "Honours Programme (30 credits of advanced coursework, e.g. PDEs)"
+      ]
+    },
+    {
+      "institution": "Sapienza University of Rome",
+      "location": "Rome, Italy",
+      "area": "Philosophy",
+      "studyType": "Bachelor’s Degree",
+      "startDate": "2018-09-01",
+      "endDate": "2021-09-01",
+      "courses": [
+        "Focused on formal logic and philosophy of language"
+      ]
     }
   ],
+
   "awards": [
     {
-      "title": "Nobel Prize in Physics",
-      "date": "1921-11-01",
-      "awarder": "Royal Swedish Academy of Sciences",
-      "url": "https://www.nobelprize.org/prizes/physics/1921/einstein/biographical/",
-      "summary": "The Nobel Prizes are five separate prizes that, according to Alfred Nobel's will of 1895, are awarded to 'those who, during the preceding year, have conferred the greatest benefit to humankind.'"
+      "title": "KHMW Young Talent Incentive Award",
+      "date": "2022-01-01",
+      "awarder": "Royal Holland Society of Sciences and Humanities",
+      "summary": "National award presented to the student with the highest GPA in their degree program at a Dutch research university."
+    },
+    {
+      "title": "Intelligent Systems Competition — 1st Place",
+      "date": "2021-01-01",
+      "awarder": "Vrije Universiteit Amsterdam",
+      "summary": "Ranked 1st out of 270 students by developing an intelligent agent for the card game Schnapsen."
     }
   ],
-  "certificates": [
-    {
-      "name": "Machine Learning",
-      "date": "2018-01-01",
-      "issuer": "Stanford University",
-      "url": "https://example.com",
-      "icon": "fa-solid fa-location-dot"
-    },
-    {
-      "name": "Quantum Computing",
-      "date": "2018-01-01",
-      "issuer": "Stanford University",
-      "url": "https://example.com",
-      "icon": "fa-solid fa-tag"
-    },
-    {
-      "name": "Quantum Information",
-      "date": "2018-01-01",
-      "issuer": "Stanford University",
-      "url": "https://example.com",
-      "icon": "fa-solid fa-envelope"
-    },
-    {
-      "name": "Quantum Cryptography",
-      "date": "2018-01-01",
-      "issuer": "Stanford University",
-      "url": "https://example.com",
-      "icon": "fa-solid fa-hashtag"
-    },
-    {
-      "name": "Quantum Communication",
-      "date": "2018-01-01",
-      "issuer": "Stanford University",
-      "url": "https://example.com",
-      "icon": "fa-solid fa-calendar"
-    },
-    {
-      "name": "Quantum Teleportation",
-      "date": "2018-01-01",
-      "issuer": "Stanford University",
-      "url": "https://example.com",
-      "icon": "fa-solid fa-clipboard-check"
-    }
-  ],
+
   "publications": [
     {
-      "name": "Zur Elektrody/namik bewegter Körper",
-      "publisher": "Annalen der Physik",
-      "releaseDate": "1905-06-30",
-      "url": "https://en.wikisource.org/wiki/Translation:On_the_Electrodynamics_of_Moving_Bodies",
-      "summary": "It concerned an interpretation of the Michelson–Morley experiment and the properties of light and time. Special relativity incorporates the principle that the speed of light is the same for all inertial observers regardless of the state of motion of the source."
+      "name": "Language Models are Injective and Hence Invertible",
+      "publisher": "Under Review",
+      "summary": "",
+      "authors": ["G. Nikolaou*", "T. Mencattini*", "et al."]
     },
     {
-      "name": "Über einen die Erzeugung und Verwandlung des Lichtes betreffenden heuristischen Gesichtspunkt",
-      "publisher": "Annalen der Physik",
-      "releaseDate": "1905-03-18",
-      "url": "https://de.wikisource.org/wiki/Über_einen_die_Erzeugung_und_Verwandlung_des_Lichtes_betreffenden_heuristischen_Gesichtspunkt",
-      "summary": "In the second paper, he applied the quantum theory to light to explain the photoelectric effect. In particular, he used the idea of light quanta (photons) to explain experimental results, but stressed the importance of the experimental results. The importance of his work on the photoelectric effect earned him the Nobel Prize in Physics in 1921."
+      "name": "Exploratory Causal Inference in SAEnce",
+      "publisher": "Under Review",
+      "authors": ["T. Mencattini*", "R. Cadei*", "et al."]
     },
     {
-      "name": "Die Grundlage der allgemeinen Relativitätstheorie",
-      "publisher": "Annalen der Physik",
-      "releaseDate": "1916-03-20",
-      "url": "https://de.wikisource.org/wiki/Die_Grundlage_der_allgemeinen_Relativitätstheorie",
-      "summary": "The publication of the theory of general relativity made him internationally famous. He was professor of physics at the universities of Zurich (1909–1911) and Prague (1911–1912), before he returned to ETH Zurich (1912–1914)."
+      "name": "MERGE³: Efficient Evolutionary Merging on Consumer-grade GPUs",
+      "publisher": "ICML 2025",
+      "authors": ["T. Mencattini*", "A. R. Minut*", "et al."]
+    },
+    {
+      "name": "Activation Patching for Interpretable Steering in Music Generation",
+      "publisher": "Under Review",
+      "authors": ["S. Facchiano", "G. Strano", "D. Crisostomi", "I. Tallini", "T. Mencattini", "et al."]
+    },
+    {
+      "name": "Mergenetic: A Simple Evolutionary Model Merging Library",
+      "publisher": "ACL 2025 · System Demonstrations",
+      "authors": ["A. R. Minut*", "T. Mencattini*", "et al."]
+    },
+    {
+      "name": "CICERO: A GPT-2-based Writing Assistant in e-justice",
+      "publisher": "ECAI 2023",
+      "authors": ["M. Calamo", "F. De Luzi", "M. Macrì", "T. Mencattini", "et al."]
+    },
+    {
+      "name": "Do Sparse Autoencoders Transfer Across Base and Finetuned LLMs?",
+      "publisher": "NeurIPS 2024 Workshop",
+      "authors": ["T. Kutsyk*", "T. Mencattini*", "et al."]
     }
   ],
+
   "skills": [
-    {
-      "name": "Physics",
-      "level": "Master",
-      "icon": "fa-solid fa-hashtag",
-      "keywords": [
-        "Quantum Mechanics",
-        "Quantum Computing",
-        "Quantum Information",
-        "Quantum Cryptography",
-        "Quantum Communication",
-        "Quantum Teleportation"
-      ]
-    }
+  
   ],
+
   "languages": [
-    {
-      "language": "German",
-      "fluency": "Native speaker",
-      "icon": ""
-    },
-    {
-      "language": "English",
-      "fluency": "Fluent",
-      "icon": ""
-    }
+
   ],
+
   "interests": [
     {
-      "name": "Physics",
-      "icon": "fa-solid fa-tag",
-      "keywords": [
-        "Quantum Mechanics",
-        "Quantum Computing",
-        "Quantum Information",
-        "Quantum Cryptography",
-        "Quantum Communication",
-        "Quantum Teleportation"
-      ]
-    }
-  ],
-  "references": [
-    {
-      "name": "Professor John Doe",
-      "icon": "fa-solid fa-laptop",
-      "reference": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam condimentum, diam quis convallis euismod, arcu mi ullamcorper lorem, a vestibulum nunc magna at sem. Sed in risus ac felis varius blandit. D"
+      "name": "AI Safety",
+      "keywords": ["Interpretability", "Sparse Autoencoders", "Causal Models"]
     },
     {
-      "name": "Professor John Doe",
-      "icon": "fa-solid fa-thumbtack",
-      "reference": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam condimentum, diam quis convallis euismod, arcu mi ullamcorper lorem, a vestibulum nunc magna at sem. Sed in risus ac felis varius blandit. D"
+      "name": "Theoretical ML",
+      "keywords": ["Representations", "Optimization", "Information Theory"]
     }
   ],
-  "projects": [
-    {
-      "name": "Quantum Computing",
-      "summary": "Quantum computing is the use of quantum-mechanical phenomena such as superposition and entanglement to perform computation. Computers that perform quantum computations are known as quantum computers.",
-      "highlights": ["Quantum Teleportation", "Quantum Cryptography"],
-      "startDate": "2018-01-01",
-      "endDate": "2018-01-01",
-      "url": "https://example.com"
-    }
-  ]
+
+  "references": []
 }
