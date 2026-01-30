@@ -395,16 +395,13 @@ ninja.data = [{
           title: 'Our agent took 1st place out of 270 students in the Intelligent Systems...',
           description: "",
           section: "News",},{id: "news-honored-to-receive-the-khmw-young-talent-incentive-award-given-annually-to-the-top-performing-student-in-each-dutch-research-university-grateful-for-the-recognition",
-          title: 'Honored to receive the KHMW Young Talent Incentive Award 🏅 Given annually to...',
+          title: 'Honored to receive the KHMW Young Talent Incentive Award🏅. Given annually to the...',
           description: "",
-          section: "News",},{id: "news-started-working-as-a-technology-assistant-at-the-network-institute-️-supporting-projects-in-xr-motion-capture-and-unity-development-loved-presenting-at-surf-xr-on-tour",
-          title: 'Started working as a Technology Assistant at the Network Institute 🎥⚙️ Supporting projects...',
+          section: "News",},{id: "news-started-working-as-a-technology-assistant-at-the-network-institute-supporting-projects-in-xr-motion-capture-and-unity-development-loved-presenting-at-surf-xr-on-tour",
+          title: 'Started working as a Technology Assistant at the Network Institute Supporting projects in...',
           description: "",
-          section: "News",},{id: "news-joined-the-kai-lab-at-vu-amsterdam-as-a-research-assistant-exploring-knowledge-graph-guided-generation-and-hallucination-reduction",
-          title: 'Joined the KAI Lab at VU Amsterdam as a Research Assistant! Exploring knowledge-graph-guided...',
-          description: "",
-          section: "News",},{id: "news-our-work-cicero-a-gpt-2-based-writing-assistant-for-e-justice-was-accepted-at-ecai-2023-great-collaboration-with-sapienza-s-legal-tech-group-️",
-          title: 'Our work CICERO, a GPT-2-based writing assistant for e-justice, was accepted at ECAI...',
+          section: "News",},{id: "news-our-work-cicero-a-gpt-2-based-writing-assistant-for-e-justice-was-accepted-at-caise-2023-great-collaboration-with-sapienza-s-legal-tech-group-️",
+          title: 'Our work CICERO, a GPT-2-based writing assistant for e-justice, was accepted at CAiSE...',
           description: "",
           section: "News",},{id: "news-started-my-summer-research-internship-at-eth-zürich-lre-lab-applying-causal-inference-to-uncover-reasoning-shortcuts-in-llms",
           title: 'Started my summer research internship at ETH Zürich (LRE Lab) 🇨🇭 Applying causal...',
@@ -413,25 +410,28 @@ ninja.data = [{
           title: 'Started my research position at GLADIA! Working on model merging, interpretability, and ability...',
           description: "",
           section: "News",},{id: "news-our-paper-do-sparse-autoencoders-transfer-across-base-and-finetuned-llms-was-presented-at-the-neurips-2024-unireps-workshop-fun-results-on-representation-drift-and-transferability",
-          title: 'Our paper “Do Sparse Autoencoders Transfer Across Base and Finetuned LLMs?” was presented...',
+          title: 'Our paper Do Sparse Autoencoders Transfer Across Base and Finetuned LLMs?was presented at...',
           description: "",
-          section: "News",},{id: "news-audio-preprint-time-our-work-on-activation-patching-for-interpretable-steering-in-music-generation-is-out-check-how-steering-tokens-shape-musical-structure",
-          title: 'Audio preprint time 🎧! Our work on activation patching for interpretable steering in...',
+          section: "News",},{id: "news-our-work-on-activation-patching-for-interpretable-steering-in-music-generation-is-out-check-how-steering-tokens-shape-musical-structure",
+          title: 'Our work on Activation Patching for Interpretable Steering in Music Generation is out....',
           description: "",
-          section: "News",},{id: "news-merge-was-accepted-at-icml-2025-super-excited-to-share-our-work-on-fast-evolutionary-merging-on-consumer-gpus-huge-thanks-to-the-team-stay-tuned-for-more-updates",
-          title: 'MERGE³ was accepted at ICML 2025! Super excited to share our work on...',
+          section: "News",},{id: "news-merge-was-accepted-at-icml-2025-excited-to-share-our-work-on-fast-evolutionary-merging-on-consumer-gpus",
+          title: 'MERGE³ was accepted at ICML 2025! Excited to share our work on fast...',
           description: "",
-          section: "News",},{id: "news-our-paper-mergenetic-a-simple-evolutionary-model-merging-library-was-accepted-at-acl-2025-system-demonstrations-come-evolve-your-own-llms",
-          title: 'Our paper “Mergenetic: a Simple Evolutionary Model Merging Library” was accepted at ACL...',
+          section: "News",},{id: "news-our-paper-mergenetic-a-simple-evolutionary-model-merging-library-was-accepted-at-acl-2025-system-demonstrations",
+          title: 'Our paper Mergenetic: a Simple Evolutionary Model Merging Library was accepted at ACL...',
           description: "",
           section: "News",},{id: "news-excited-to-be-joining-ista-this-summer-as-a-research-intern-in-the-locatello-group-working-on-multimodal-foundation-models-and-causal-learning",
           title: 'Excited to be joining ISTA this summer as a Research Intern in the...',
           description: "",
-          section: "News",},{id: "news-new-preprint-out-language-models-are-injective-and-hence-invertible-we-prove-that-llm-representations-are-injective-and-present-the-first-exact-inversion-algorithm-the-announcement-blew-up-with-4-7m-views-on-twitter-check-it-out",
-          title: 'New preprint out! Language Models Are Injective and Hence Invertible 🔍 We prove...',
+          section: "News",},{id: "news-new-preprint-out-language-models-are-injective-and-hence-invertible-we-prove-that-llm-representations-are-injective-and-present-the-first-exact-inversion-algorithm-the-announcement-blew-up-with-4-9m-views-on-twitter-check-it-out",
+          title: 'New preprint out! Language Models Are Injective and Hence Invertible We prove that...',
           description: "",
-          section: "News",},{id: "news-new-preprint-exploratory-causal-inference-in-saence-unifying-sparse-autoencoders-with-causal-effect-estimation-excited-to-see-where-this-goes",
-          title: 'New preprint: Exploratory Causal Inference in SAEnce 🔗📊 Unifying sparse autoencoders with causal...',
+          section: "News",},{id: "news-our-paper-language-models-are-injective-and-hence-invertible-has-been-accepted-at-iclr-2026",
+          title: 'Our paper Language Models Are Injective and Hence Invertible has been accepted at...',
+          description: "",
+          section: "News",},{id: "news-our-paper-exploratory-causal-inference-in-saence-has-been-accepted-at-iclr-2026",
+          title: 'Our paper Exploratory Causal Inference in SAEnce has been accepted at ICLR 2026....',
           description: "",
           section: "News",},{id: "projects-project-1",
           title: 'project 1',
@@ -479,13 +479,6 @@ ninja.data = [{
           section: "Projects",handler: () => {
               window.location.href = "/projects/9_project/";
             },},{
-        id: 'social-cv',
-        title: 'CV',
-        section: 'Socials',
-        handler: () => {
-          window.open("/assets/pdf/website_cv.pdf", "_blank");
-        },
-      },{
         id: 'social-email',
         title: 'email',
         section: 'Socials',
@@ -513,30 +506,4 @@ ninja.data = [{
         handler: () => {
           window.open("https://twitter.com/tommaso_mncttn", "_blank");
         },
-      },{
-      id: 'light-theme',
-      title: 'Change theme to light',
-      description: 'Change the theme of the site to Light',
-      section: 'Theme',
-      handler: () => {
-        setThemeSetting("light");
-      },
-    },
-    {
-      id: 'dark-theme',
-      title: 'Change theme to dark',
-      description: 'Change the theme of the site to Dark',
-      section: 'Theme',
-      handler: () => {
-        setThemeSetting("dark");
-      },
-    },
-    {
-      id: 'system-theme',
-      title: 'Use system default theme',
-      description: 'Change the theme of the site to System Default',
-      section: 'Theme',
-      handler: () => {
-        setThemeSetting("system");
-      },
-    },];
+      },];
