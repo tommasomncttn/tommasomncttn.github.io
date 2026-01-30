@@ -5,6 +5,6 @@ inline: true
 related_posts: false
 ---
 
-Started working as a **Technology Assistant** at the Network Institute 🎥⚙️
+Started working as a *Technology Assistant* at the [Network Institute](https://networkinstitute.org/)
 Supporting projects in XR, motion capture, and Unity development.
 Loved presenting at Surf XR-On Tour!

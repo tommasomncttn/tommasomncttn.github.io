@@ -5,6 +5,5 @@ inline: true
 related_posts: false
 ---
 
-Audio preprint time 🎧!
-Our work on **activation patching for interpretable steering in music generation** is out.
-Check how steering tokens shape musical structure 🎼✨
+Our work on [Activation Patching for Interpretable Steering in Music Generation](https://arxiv.org/pdf/2504.04479) is out.
+Check how steering tokens shape musical structure!

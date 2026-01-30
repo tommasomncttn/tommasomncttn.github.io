@@ -409,6 +409,31 @@ ul.task-list input[type="checkbox"] {
   }
 }
 
+// Social (profile)
+
+.profile-social {
+  text-align: center;
+  margin-bottom: 0.5rem;
+
+  a {
+    font-size: 1.2rem;
+    margin: 0 0.3rem;
+
+    i::before {
+      color: var(--global-text-color);
+      transition: all 0.2s ease-in-out;
+    }
+
+    &:hover {
+      text-decoration: none;
+
+      i::before {
+        color: var(--global-theme-color);
+      }
+    }
+  }
+}
+
 // Social (bottom)
 
 .social {
@@ -749,7 +774,27 @@ footer.sticky-bottom {
     li {
       margin-bottom: 1rem;
 
+      .preview-container {
+        position: relative;
+      }
+
+      .conference-banner {
+        background-color: var(--global-theme-color);
+        color: white;
+        font-size: 0.7rem;
+        font-weight: bold;
+        text-align: center;
+        padding: 0.2rem 0.4rem;
+        border-radius: 4px 4px 0 0;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+
       .preview {
+        width: 100%;
+        height: 100px;
+        object-fit: contain;
       }
 
       .abbr {
@@ -1259,6 +1304,126 @@ ninja-keys::part(ninja-input) {
 
 ninja-keys::part(ninja-input-wrapper) {
   background: var(--global-bg-color);
+}
+
+// Talks section
+.talks-section {
+  ul {
+    list-style: none;
+    padding: 0;
+    
+    li {
+      margin-bottom: 0.5rem;
+      padding-left: 0;
+      
+      a {
+        color: var(--global-theme-color);
+        
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+      
+      .fa-file-pdf {
+        margin-left: 0.3rem;
+        font-size: 0.9rem;
+      }
+    }
+  }
+}
+
+// Libraries section
+.github-stars {
+  height: 20px;
+  vertical-align: middle;
+  margin-left: 0.5rem;
+}
+
+.library-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100px;
+  
+  a {
+    font-size: 5rem;
+    color: var(--global-text-color);
+    
+    &:hover {
+      color: var(--global-theme-color);
+      text-decoration: none;
+    }
+  }
+}
+
+// Section Navigation Slider (Notion-style)
+.section-nav {
+  position: fixed;
+  right: 25px;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  
+  @media (max-width: 992px) {
+    display: none;
+  }
+  
+  .section-nav-indicator {
+    width: 8px;
+    height: 120px;
+    background-color: var(--global-theme-color);
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    opacity: 0.7;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  }
+  
+  .section-nav-menu {
+    position: absolute;
+    right: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    background-color: var(--global-bg-color);
+    border: 1px solid var(--global-divider-color);
+    border-radius: 10px;
+    padding: 1rem 1.25rem;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateX(10px);
+    transition: all 0.2s ease;
+    white-space: nowrap;
+    
+    a {
+      color: var(--global-text-color);
+      font-size: 1rem;
+      font-weight: 500;
+      text-decoration: none;
+      padding: 0.3rem 0;
+      transition: color 0.2s ease;
+      
+      &:hover {
+        color: var(--global-theme-color);
+      }
+    }
+  }
+  
+  &:hover {
+    .section-nav-indicator {
+      opacity: 1;
+      transform: scaleY(1.1);
+    }
+    
+    .section-nav-menu {
+      opacity: 1;
+      visibility: visible;
+      transform: translateX(0);
+    }
+  }
 }
 
 // newsletter

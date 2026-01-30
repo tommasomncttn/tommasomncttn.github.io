@@ -1,22 +1,34 @@
 ---
 layout: default
 ---
+<!-- Section Navigation Slider -->
+<nav class="section-nav">
+  <div class="section-nav-indicator"></div>
+  <div class="section-nav-menu">
+    {% if page.announcements and page.announcements.enabled %}
+      <a href="#news">News</a>
+    {% endif %}
+    {% if page.talks and page.talks.enabled %}
+      <a href="#talks">Talks</a>
+    {% endif %}
+    {% if page.libraries and page.libraries.enabled %}
+      <a href="#libraries">Libraries</a>
+    {% endif %}
+    {% if page.selected_papers %}
+      <a href="#selected-publications">Publications</a>
+    {% endif %}
+  </div>
+</nav>
+
 <div class="post">
   <header class="post-header">
-    <h1 class="post-title">
-      {% if site.title == 'blank' %}
-        <span class="font-weight-bold">{{ site.first_name }}</span> {{ site.middle_name }}
-        {{ site.last_name }}
-      {% else %}
-        {{ site.title }}
-      {% endif %}
-    </h1>
-    <p class="desc">{{ page.subtitle }}</p>
-  </header>
-
-  <article>
     {% if page.profile %}
       <div class="profile float-{% if page.profile.align == 'left' %}left{% else %}right{% endif %}">
+        {% if page.social %}
+          <div class="profile-social">
+            {% include social.liquid %}
+          </div>
+        {% endif %}
         {% if page.profile.image %}
           {% assign profile_image_path = page.profile.image | prepend: 'assets/img/' %}
           {% if page.profile.image_circular %}
@@ -37,15 +49,67 @@ layout: default
         {% endif %}
       </div>
     {% endif %}
+    <h1 class="post-title">
+      {% if site.title == 'blank' %}
+        <span class="font-weight-bold">{{ site.first_name }}</span> {{ site.middle_name }}
+        {{ site.last_name }}
+      {% else %}
+        {{ site.title }}
+      {% endif %}
+    </h1>
+    <p class="desc">{{ page.subtitle }}</p>
+  </header>
 
+  <article>
     <div class="clearfix">{{ content }}</div>
 
     <!-- News -->
     {% if page.announcements and page.announcements.enabled %}
-      <h2>
+      <h2 id="news">
         <a href="{{ '/news/' | relative_url }}" style="color: inherit">news</a>
       </h2>
       {% include news.liquid limit=true %}
+    {% endif %}
+
+    <!-- Talks -->
+    {% if page.talks and page.talks.enabled %}
+      <h2 id="talks">talks</h2>
+      <div class="talks-section">
+        <div class="table-responsive">
+          <table class="table table-sm table-borderless">
+            <tr>
+              <th scope="row" style="width: 20%">
+                Jan, 2026
+                <br>Invited Talk
+              </th>
+              <td>
+                Presented <a href="https://arxiv.org/abs/2510.15511" target="_blank">Language Models Are Injective and Hence Invertible</a> at <a href="https://scholar.google.com/citations?user=NMSCU3MAAAAJ&hl=en" target="_blank">Apple @ Aachen (S. Peitz Group)</a>
+                <a href="{{ '/talks/presentationTM.pdf' | relative_url }}" target="_blank"><i class="fa-solid fa-file-pdf"></i></a>
+              </td>
+            </tr>
+            <tr>
+              <th scope="row" style="width: 20%">
+                Dec, 2025
+                <br>Invited Talk
+              </th>
+              <td>
+                Gave a talk on <a href="https://arxiv.org/abs/2510.15511" target="_blank">Language Models Are Injective and Hence Invertible</a> at <a href="https://www.bakerhughes.com/" target="_blank">Baker Hughes</a>
+                <a href="{{ '/talks/presentationTM.pdf' | relative_url }}" target="_blank"><i class="fa-solid fa-file-pdf"></i></a>
+              </td>
+            </tr>
+            <tr>
+              <th scope="row" style="width: 20%">
+                Nov, 2025
+                <br>Invited Talk
+              </th>
+              <td>
+                Discussed <a href="https://arxiv.org/abs/2510.15511" target="_blank">Language Models Are Injective and Hence Invertible</a> at <a href="https://x.com/AreaSciencePark/status/1991530477308809237" target="_blank">Area Science Park (University of Trieste)</a>
+                <a href="{{ '/talks/presentationTM.pdf' | relative_url }}" target="_blank"><i class="fa-solid fa-file-pdf"></i></a>
+              </td>
+            </tr>
+          </table>
+        </div>
+      </div>
     {% endif %}
 
     <!-- Latest posts -->
@@ -56,22 +120,21 @@ layout: default
       {% include latest_posts.liquid %}
     {% endif %}
 
+    <!-- Libraries -->
+    {% if page.libraries and page.libraries.enabled %}
+      <h2 id="libraries">libraries</h2>
+      {% include libraries.liquid %}
+    {% endif %}
+
     <!-- Selected papers -->
     {% if page.selected_papers %}
-      <h2>
+      <h2 id="selected-publications">
         <a href="{{ '/publications/' | relative_url }}" style="color: inherit">selected publications</a>
       </h2>
       {% include selected_papers.liquid %}
     {% endif %}
 
-    <!-- Social -->
-    {% if page.social %}
-      <div class="social">
-        <div class="contact-icons">{% include social.liquid %}</div>
 
-        <div class="contact-note">{{ site.contact_note }}</div>
-      </div>
-    {% endif %}
 
     {% if site.newsletter and site.newsletter.enabled and site.footer_fixed %}
       {% include newsletter.liquid center=true %}
