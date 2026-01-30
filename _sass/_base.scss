@@ -1311,19 +1311,19 @@ ninja-keys::part(ninja-input-wrapper) {
   ul {
     list-style: none;
     padding: 0;
-    
+
     li {
       margin-bottom: 0.5rem;
       padding-left: 0;
-      
+
       a {
         color: var(--global-theme-color);
-        
+
         &:hover {
           text-decoration: underline;
         }
       }
-      
+
       .fa-file-pdf {
         margin-left: 0.3rem;
         font-size: 0.9rem;
@@ -1344,11 +1344,11 @@ ninja-keys::part(ninja-input-wrapper) {
   align-items: center;
   justify-content: center;
   height: 100px;
-  
+
   a {
     font-size: 5rem;
     color: var(--global-text-color);
-    
+
     &:hover {
       color: var(--global-theme-color);
       text-decoration: none;
@@ -1365,11 +1365,11 @@ ninja-keys::part(ninja-input-wrapper) {
   z-index: 1000;
   display: flex;
   align-items: center;
-  
+
   @media (max-width: 992px) {
     display: none;
   }
-  
+
   .section-nav-indicator {
     width: 8px;
     height: 120px;
@@ -1380,7 +1380,7 @@ ninja-keys::part(ninja-input-wrapper) {
     opacity: 0.7;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
   }
-  
+
   .section-nav-menu {
     position: absolute;
     right: 20px;
@@ -1397,7 +1397,7 @@ ninja-keys::part(ninja-input-wrapper) {
     transform: translateX(10px);
     transition: all 0.2s ease;
     white-space: nowrap;
-    
+
     a {
       color: var(--global-text-color);
       font-size: 1rem;
@@ -1405,19 +1405,19 @@ ninja-keys::part(ninja-input-wrapper) {
       text-decoration: none;
       padding: 0.3rem 0;
       transition: color 0.2s ease;
-      
+
       &:hover {
         color: var(--global-theme-color);
       }
     }
   }
-  
+
   &:hover {
     .section-nav-indicator {
       opacity: 1;
       transform: scaleY(1.1);
     }
-    
+
     .section-nav-menu {
       opacity: 1;
       visibility: visible;

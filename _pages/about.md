@@ -2,15 +2,14 @@
 layout: about
 title: about
 permalink: /
-subtitle: 
+subtitle:
 
 profile:
   align: right
   image: prof_pic.png
   image_circular: true # crops the image to make it circular
   more_info: >
-         MSc Data Science @ EPFL, Research @ Gladia, ISTA
-
+    MSc Data Science @ EPFL, Research @ Gladia, ISTA
 
 selected_papers: true # includes a list of papers marked as "selected={true}"
 social: true # includes social icons at the bottom of the page
@@ -32,7 +31,7 @@ latest_posts:
   limit: 3 # leave blank to include all the blog posts
 ---
 
-Hey! I’m Tommaso, currently doing a *Master’s in Data Science* at **EPFL**.  
-Between lectures and problem sets, I spend my time at **GLADIA** working on *LLMs*, mainly figuring out how to make them more *interpretable* and *safer*.
+Hey! I’m Tommaso, currently doing a _Master’s in Data Science_ at **EPFL**.  
+Between lectures and problem sets, I spend my time at **GLADIA** working on _LLMs_, mainly figuring out how to make them more _interpretable_ and _safer_.
 
-My academic path is a bit unconventional: I hold a *BSc in AI and Mathematics* and a *BA in Philosophy*. That means I probably know more math than most philosophers, more computer science than most mathematicians, and more philosophy than most computer scientists. Not entirely sure if that’s a strength or just confusing, but it definitely keeps things interesting.
+My academic path is a bit unconventional: I hold a _BSc in AI and Mathematics_ and a _BA in Philosophy_. That means I probably know more math than most philosophers, more computer science than most mathematicians, and more philosophy than most computer scientists. Not entirely sure if that’s a strength or just confusing, but it definitely keeps things interesting.

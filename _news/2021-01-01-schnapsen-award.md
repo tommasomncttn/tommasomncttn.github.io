@@ -5,6 +5,6 @@ inline: true
 related_posts: false
 ---
 
-Our agent took **1st place** out of 270 students in the Intelligent Systems Competition 
+Our agent took **1st place** out of 270 students in the Intelligent Systems Competition
 We built a Schnapsen-playing AI that dominated the leaderboard!
 Super fun project.
