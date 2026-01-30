@@ -486,6 +486,13 @@ ninja.data = [{
           window.open("mailto:%74%6F%6D%6D%61%73%6F.%6D%65%6E%63%61%74%74%69%6E%69@%65%70%66%6C.%63%68", "_blank");
         },
       },{
+        id: 'social-github',
+        title: 'GitHub',
+        section: 'Socials',
+        handler: () => {
+          window.open("https://github.com/tommasomncttn", "_blank");
+        },
+      },{
         id: 'social-linkedin',
         title: 'LinkedIn',
         section: 'Socials',
