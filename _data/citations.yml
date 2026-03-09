@@ -1,5 +1,5 @@
 metadata:
-  last_updated: '2026-02-18'
+  last_updated: '2026-03-09'
 papers:
   nJuzaPsAAAAJ:2osOgNQ5qMEC:
     citations: 2
@@ -14,7 +14,7 @@ papers:
     title: Exploratory Causal Inference in SAEnce
     year: '2025'
   nJuzaPsAAAAJ:UeHWp8X0CEIC:
-    citations: 6
+    citations: 9
     title: Language Models are Injective and Hence Invertible
     year: '2025'
   nJuzaPsAAAAJ:d1gkVwhDpl0C:
@@ -26,7 +26,7 @@ papers:
     title: Do Sparse Autoencoders (SAEs) transfer across base and finetuned language models?
     year: '2025'
   nJuzaPsAAAAJ:u-x6o8ySG0sC:
-    citations: 8
+    citations: 9
     title: 'MERGE : Efficient Evolutionary Merging on Consumer-grade GPUs'
     year: '2025'
   nJuzaPsAAAAJ:u5HHmVD_uO8C:
