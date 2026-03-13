@@ -1,5 +1,5 @@
 metadata:
-  last_updated: '2026-03-09'
+  last_updated: '2026-03-13'
 papers:
   nJuzaPsAAAAJ:2osOgNQ5qMEC:
     citations: 2
@@ -14,7 +14,7 @@ papers:
     title: Exploratory Causal Inference in SAEnce
     year: '2025'
   nJuzaPsAAAAJ:UeHWp8X0CEIC:
-    citations: 9
+    citations: 10
     title: Language Models are Injective and Hence Invertible
     year: '2025'
   nJuzaPsAAAAJ:d1gkVwhDpl0C:
