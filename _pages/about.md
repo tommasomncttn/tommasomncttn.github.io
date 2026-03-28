@@ -32,6 +32,6 @@ latest_posts:
 ---
 
 Hey! I’m Tommaso, currently doing a _Master’s in Data Science_ at **EPFL**.  
-Between lectures and problem sets, I spend my time at **GLADIA** working on _LLMs_, mainly figuring out how to make them more _interpretable_ and _safer_.
+Between lectures and problem sets, I spend my time at [ISTA](https://ista.ac.at/en/research/locatello-group/) and [GLADIA](https://gladia.di.uniroma1.it/) working on _LLMs_, mainly figuring out how to make them more _interpretable_ and _safer_.
 
 My academic path is a bit unconventional: I hold a _BSc in AI and Mathematics_ and a _BA in Philosophy_. That means I probably know more math than most philosophers, more computer science than most mathematicians, and more philosophy than most computer scientists. Not entirely sure if that’s a strength or just confusing, but it definitely keeps things interesting.
