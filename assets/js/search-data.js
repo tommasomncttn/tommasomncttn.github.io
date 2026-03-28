@@ -23,7 +23,18 @@ ninja.data = [{
           handler: () => {
             window.location.href = "/cv/";
           },
-        },{id: "post-untitled-post",
+        },{id: "post-prehistorical-dl-convolutions-and-resnet",
+        
+          title: "Prehistorical DL: Convolutions and RESNET",
+        
+        description: "Some heuristics for someone completely uninsterested in CNNs",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2026/convolutions-and-resnet/";
+          
+        },
+      },{id: "post-untitled-post",
         
           title: "Untitled Post",
         
