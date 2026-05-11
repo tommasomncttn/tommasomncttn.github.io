@@ -1,24 +1,24 @@
 metadata:
-  last_updated: '2026-04-17'
+  last_updated: '2026-05-11'
 papers:
   nJuzaPsAAAAJ:2osOgNQ5qMEC:
-    citations: 2
+    citations: 3
     title: 'Mergenetic: a Simple Evolutionary Model Merging Library'
     year: '2025'
   nJuzaPsAAAAJ:9yKSN-GCB0IC:
-    citations: 2
+    citations: 3
     title: Activation patching for interpretable steering in music generation
     year: '2025'
   nJuzaPsAAAAJ:IjCSPb-OGe4C:
-    citations: 0
+    citations: 1
     title: Exploratory Causal Inference in SAEnce
     year: '2025'
   nJuzaPsAAAAJ:UeHWp8X0CEIC:
-    citations: 11
+    citations: 13
     title: Language Models are Injective and Hence Invertible
     year: '2025'
   nJuzaPsAAAAJ:d1gkVwhDpl0C:
-    citations: 10
+    citations: 11
     title: 'Cicero: An AI-based writing assistant for legal users'
     year: '2023'
   nJuzaPsAAAAJ:qjMakFHDy7sC:
@@ -26,11 +26,11 @@ papers:
     title: Do Sparse Autoencoders (SAEs) transfer across base and finetuned language models?
     year: '2025'
   nJuzaPsAAAAJ:u-x6o8ySG0sC:
-    citations: 12
+    citations: 13
     title: 'MERGE : Efficient Evolutionary Merging on Consumer-grade GPUs'
     year: '2025'
   nJuzaPsAAAAJ:u5HHmVD_uO8C:
-    citations: 12
+    citations: 13
     title: "CICERO: a GPT2-based writing assistant to investigate the effectiveness of specialized LLMs\u2019 applications in e-justice"
     year: '2023'
   nJuzaPsAAAAJ:zYLM7Y9cAGgC:
