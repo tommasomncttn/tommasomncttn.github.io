@@ -1,5 +1,5 @@
 metadata:
-  last_updated: '2026-05-11'
+  last_updated: '2026-05-18'
 papers:
   nJuzaPsAAAAJ:2osOgNQ5qMEC:
     citations: 3
@@ -13,6 +13,10 @@ papers:
     citations: 1
     title: Exploratory Causal Inference in SAEnce
     year: '2025'
+  nJuzaPsAAAAJ:Tyk-4Ss8FVUC:
+    citations: 0
+    title: The Rate-Distortion-Polysemanticity Tradeoff in SAEs
+    year: '2026'
   nJuzaPsAAAAJ:UeHWp8X0CEIC:
     citations: 13
     title: Language Models are Injective and Hence Invertible
