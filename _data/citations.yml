@@ -1,16 +1,16 @@
 metadata:
-  last_updated: '2026-05-27'
+  last_updated: '2026-06-17'
 papers:
   nJuzaPsAAAAJ:2osOgNQ5qMEC:
-    citations: 3
+    citations: 4
     title: 'Mergenetic: a Simple Evolutionary Model Merging Library'
     year: '2025'
   nJuzaPsAAAAJ:9yKSN-GCB0IC:
-    citations: 3
+    citations: 7
     title: Activation patching for interpretable steering in music generation
     year: '2025'
   nJuzaPsAAAAJ:IjCSPb-OGe4C:
-    citations: 1
+    citations: 2
     title: Exploratory Causal Inference in SAEnce
     year: '2025'
   nJuzaPsAAAAJ:Tyk-4Ss8FVUC:
@@ -18,9 +18,17 @@ papers:
     title: The Rate-Distortion-Polysemanticity Tradeoff in SAEs
     year: '2026'
   nJuzaPsAAAAJ:UeHWp8X0CEIC:
-    citations: 13
+    citations: 20
     title: Language Models are Injective and Hence Invertible
     year: '2025'
+  nJuzaPsAAAAJ:WF5omc3nYNoC:
+    citations: 0
+    title: Steering Vectors are an Adversarial Attack Surface
+    year: '2026'
+  nJuzaPsAAAAJ:Y0pCki6q_DkC:
+    citations: 0
+    title: How Neural Losses Shape VAE Latents
+    year: '2026'
   nJuzaPsAAAAJ:d1gkVwhDpl0C:
     citations: 11
     title: 'Cicero: An AI-based writing assistant for legal users'
