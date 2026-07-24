@@ -1,12 +1,12 @@
 metadata:
-  last_updated: '2026-06-17'
+  last_updated: '2026-07-24'
 papers:
   nJuzaPsAAAAJ:2osOgNQ5qMEC:
-    citations: 4
+    citations: 5
     title: 'Mergenetic: a Simple Evolutionary Model Merging Library'
     year: '2025'
   nJuzaPsAAAAJ:9yKSN-GCB0IC:
-    citations: 7
+    citations: 8
     title: Activation patching for interpretable steering in music generation
     year: '2025'
   nJuzaPsAAAAJ:IjCSPb-OGe4C:
@@ -18,7 +18,7 @@ papers:
     title: The Rate-Distortion-Polysemanticity Tradeoff in SAEs
     year: '2026'
   nJuzaPsAAAAJ:UeHWp8X0CEIC:
-    citations: 20
+    citations: 24
     title: Language Models are Injective and Hence Invertible
     year: '2025'
   nJuzaPsAAAAJ:WF5omc3nYNoC:
@@ -38,13 +38,17 @@ papers:
     title: Do Sparse Autoencoders (SAEs) transfer across base and finetuned language models?
     year: '2025'
   nJuzaPsAAAAJ:u-x6o8ySG0sC:
-    citations: 12
+    citations: 13
     title: 'MERGE : Efficient Evolutionary Merging on Consumer-grade GPUs'
     year: '2025'
   nJuzaPsAAAAJ:u5HHmVD_uO8C:
-    citations: 13
+    citations: 14
     title: "CICERO: a GPT2-based writing assistant to investigate the effectiveness of specialized LLMs\u2019 applications in e-justice"
     year: '2023'
+  nJuzaPsAAAAJ:ufrVoPGSRksC:
+    citations: 0
+    title: 'Subliminal Clocks: Latent Time Modelling in Diffusion Language Models'
+    year: '2026'
   nJuzaPsAAAAJ:zYLM7Y9cAGgC:
     citations: 0
     title: Multi-objective Evolutionary Merging Enables Efficient Reasoning Models
