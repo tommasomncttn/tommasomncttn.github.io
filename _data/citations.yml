@@ -1,12 +1,12 @@
 metadata:
-  last_updated: '2026-07-24'
+  last_updated: '2026-08-03'
 papers:
   nJuzaPsAAAAJ:2osOgNQ5qMEC:
     citations: 5
     title: 'Mergenetic: a Simple Evolutionary Model Merging Library'
     year: '2025'
   nJuzaPsAAAAJ:9yKSN-GCB0IC:
-    citations: 8
+    citations: 9
     title: Activation patching for interpretable steering in music generation
     year: '2025'
   nJuzaPsAAAAJ:IjCSPb-OGe4C:
@@ -18,7 +18,7 @@ papers:
     title: The Rate-Distortion-Polysemanticity Tradeoff in SAEs
     year: '2026'
   nJuzaPsAAAAJ:UeHWp8X0CEIC:
-    citations: 24
+    citations: 27
     title: Language Models are Injective and Hence Invertible
     year: '2025'
   nJuzaPsAAAAJ:WF5omc3nYNoC:
@@ -34,7 +34,7 @@ papers:
     title: 'Cicero: An AI-based writing assistant for legal users'
     year: '2023'
   nJuzaPsAAAAJ:qjMakFHDy7sC:
-    citations: 0
+    citations: 2
     title: Do Sparse Autoencoders (SAEs) transfer across base and finetuned language models?
     year: '2025'
   nJuzaPsAAAAJ:u-x6o8ySG0sC:
