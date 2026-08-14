@@ -34,11 +34,22 @@ ninja.data = [{
         
           title: "Notes on World Models",
         
-        description: "WM",
+        description: "Some notes I took at EPFL on world models",
         section: "Posts",
         handler: () => {
           
             window.location.href = "/blog/2026/notes-on-world-models/";
+          
+        },
+      },{id: "post-notes-on-diffusion-models",
+        
+          title: "Notes on Diffusion Models",
+        
+        description: "Some notes I took at EPFL on diffusion models",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2026/notes-on-diffusion-models/";
           
         },
       },{id: "books-the-godfather",
