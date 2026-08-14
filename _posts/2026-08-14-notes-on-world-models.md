@@ -2,14 +2,14 @@
 layout: post
 title: "Notes on World Models"
 date: 2026-08-14
-description: "WM"
+description: "Some notes I took at EPFL on world models"
 tags: notes
 categories: blog
 related_posts: false
 toc:
   sidebar: left
 notion_id: 3bc815d2-904b-803f-a25c-c546d465dc1d
-notion_last_edited: 2026-08-14T15:41:00.000Z
+notion_last_edited: 2026-08-14T18:19:00.000Z
 ---
 ## A. World Models (L12)
 
