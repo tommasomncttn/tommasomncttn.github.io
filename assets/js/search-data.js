@@ -41,17 +41,6 @@ ninja.data = [{
             window.location.href = "/blog/2026/notes-on-world-models/";
           
         },
-      },{id: "post-notes-on-vision-models",
-        
-          title: "Notes on Vision Models",
-        
-        description: "VM",
-        section: "Posts",
-        handler: () => {
-          
-            window.location.href = "/blog/2026/notes-on-vision-models/";
-          
-        },
       },{id: "books-the-godfather",
           title: 'The Godfather',
           description: "",
