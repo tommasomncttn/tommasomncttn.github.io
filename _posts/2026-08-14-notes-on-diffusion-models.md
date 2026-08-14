@@ -9,6 +9,7 @@ related_posts: false
 render_with_liquid: false
 toc:
   sidebar: left
+background: /assets/img/posts/notes-on-diffusion-models/background.webp
 notion_id: 3bc815d2-904b-801f-aa7e-d057d46bc2b7
 notion_last_edited: 2026-08-14T19:57:00.000Z
 ---

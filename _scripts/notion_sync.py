@@ -319,11 +319,18 @@ def convert_page(page: dict) -> bool:
         dest = ASSETS_DIR / slug / f"background{ext}"
         dest.parent.mkdir(parents=True, exist_ok=True)
         try:
-            with urllib.request.urlopen(meta["background"], timeout=60) as resp:
+            req = urllib.request.Request(
+                meta["background"],
+                headers={"User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) personal-site-build"},
+            )
+            with urllib.request.urlopen(req, timeout=60) as resp:
                 dest.write_bytes(resp.read())
             background_line = [f"background: /assets/img/posts/{slug}/background{ext}"]
         except Exception as e:
             print(f"    warning: could not download background image: {e}")
+            if "X-Amz-" not in meta["background"]:
+                # external link that refuses bots: let the browser load it directly
+                background_line = [f"background: {meta['background']}"]
 
     front = [
         "---",

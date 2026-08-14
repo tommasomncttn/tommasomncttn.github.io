@@ -9,6 +9,7 @@ related_posts: false
 render_with_liquid: false
 toc:
   sidebar: left
+background: /assets/img/posts/notes-on-world-models/background.jpg
 notion_id: 3bc815d2-904b-803f-a25c-c546d465dc1d
 notion_last_edited: 2026-08-14T19:56:00.000Z
 ---
