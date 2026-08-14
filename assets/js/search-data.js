@@ -41,6 +41,17 @@ ninja.data = [{
             window.location.href = "/blog/2026/notes-on-world-models/";
           
         },
+      },{id: "post-notes-on-transformers",
+        
+          title: "Notes on Transformers",
+        
+        description: "Some notes I took at EPFL on transformers",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2026/notes-on-transformers/";
+          
+        },
       },{id: "post-notes-on-diffusion-models",
         
           title: "Notes on Diffusion Models",
