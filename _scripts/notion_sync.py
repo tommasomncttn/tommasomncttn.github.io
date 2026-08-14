@@ -68,8 +68,22 @@ def slugify(text: str) -> str:
 
 
 def rich_text_to_md(rich: list) -> str:
-    out = []
+    # Merge consecutive segments with identical styling: Notion splits one
+    # styled phrase into several segments, which would otherwise emit
+    # adjacent delimiters like "_text__._" that kramdown renders literally.
+    merged = []
     for seg in rich:
+        ann = seg.get("annotations", {})
+        key = (seg.get("type"), ann.get("bold"), ann.get("italic"),
+               ann.get("strikethrough"), ann.get("code"), seg.get("href"))
+        if merged and merged[0] == key and seg.get("type") == "text":
+            merged_seg = merged[1][-1]
+            merged_seg["plain_text"] = merged_seg.get("plain_text", "") + seg.get("plain_text", "")
+        else:
+            merged = [key, merged[1] + [dict(seg)] if merged else [dict(seg)]]
+    segments = merged[1] if merged else []
+    out = []
+    for seg in segments:
         if seg.get("type") == "equation":
             expr = seg["equation"]["expression"]
             if not re.search(r"[A-Za-z0-9\\]", expr):
@@ -296,6 +310,8 @@ def convert_page(page: dict) -> bool:
         f"tags: {' '.join(meta['tags']) if meta['tags'] else 'notes'}",
         "categories: blog",
         "related_posts: false",
+        # Notion LaTeX can contain '{{' which Liquid mis-parses as a variable
+        "render_with_liquid: false",
         "toc:",
         "  sidebar: left",
         f"notion_id: {meta['id']}",

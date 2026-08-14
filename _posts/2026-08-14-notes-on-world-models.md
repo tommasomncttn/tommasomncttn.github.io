@@ -6,6 +6,7 @@ description: "Some notes I took at EPFL on world models"
 tags: notes
 categories: blog
 related_posts: false
+render_with_liquid: false
 toc:
   sidebar: left
 notion_id: 3bc815d2-904b-803f-a25c-c546d465dc1d
