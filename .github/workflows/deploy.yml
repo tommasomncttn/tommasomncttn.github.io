@@ -94,10 +94,8 @@ jobs:
           pip3 install --upgrade nbconvert
           export JEKYLL_ENV=production
           bundle exec jekyll build
-      - name: Purge unused CSS 🧹
-        run: |
-          npm install -g purgecss
-          purgecss -c purgecss.config.js
+      # PurgeCSS step removed: it stripped used rules (theme variables,
+      # pseudo-elements, JS-toggled classes) and broke the site's styling.
       - name: Deploy 🚀
         if: github.event_name != 'pull_request'
         uses: JamesIves/github-pages-deploy-action@v4
