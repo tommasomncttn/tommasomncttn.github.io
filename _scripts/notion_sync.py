@@ -273,6 +273,11 @@ def page_meta(page: dict) -> dict:
     tags = [t["name"] for t in (prop("Tags", "multi_select") or [])]
     desc_rich = prop("Description", "rich_text") or []
     description = "".join(s.get("plain_text", "") for s in desc_rich).strip()
+    bg_files = prop("Background", "files") or []
+    background = ""
+    if bg_files:
+        f = bg_files[0]
+        background = (f.get("file") or {}).get("url") or (f.get("external") or {}).get("url") or ""
     return {
         "id": page["id"],
         "title": title,
@@ -280,6 +285,7 @@ def page_meta(page: dict) -> dict:
         "tags": tags,
         "description": description,
         "last_edited": page.get("last_edited_time", ""),
+        "background": background,
     }
 
 
@@ -307,6 +313,18 @@ def convert_page(page: dict) -> bool:
         first_par = next((line for line in body.split("\n") if line.strip() and not line.startswith(("#", "!", ">", "```"))), "")
         meta["description"] = re.sub(r"[*_`#\[\]$]", "", first_par)[:160]
 
+    background_line = []
+    if meta["background"]:
+        ext = os.path.splitext(urllib.parse.urlparse(meta["background"]).path)[1] or ".jpg"
+        dest = ASSETS_DIR / slug / f"background{ext}"
+        dest.parent.mkdir(parents=True, exist_ok=True)
+        try:
+            with urllib.request.urlopen(meta["background"], timeout=60) as resp:
+                dest.write_bytes(resp.read())
+            background_line = [f"background: /assets/img/posts/{slug}/background{ext}"]
+        except Exception as e:
+            print(f"    warning: could not download background image: {e}")
+
     front = [
         "---",
         "layout: post",
@@ -320,6 +338,7 @@ def convert_page(page: dict) -> bool:
         "render_with_liquid: false",
         "toc:",
         "  sidebar: left",
+        *background_line,
         f"notion_id: {meta['id']}",
         f"notion_last_edited: {meta['last_edited']}",
         "---",
