@@ -126,9 +126,7 @@
       "startDate": "2024-09-01",
       "endDate": "",
       "score": "GPA: 5.7/6",
-      "courses": [
-        "Coursework focused on the Mathematics of data science"
-      ]
+      "courses": ["Coursework focused on the Mathematics of data science"]
     },
     {
       "institution": "Vrije Universiteit Amsterdam",
@@ -138,9 +136,7 @@
       "startDate": "2021-09-01",
       "endDate": "2024-07-01",
       "score": "GPA: 9.2/10",
-      "courses": [
-        "Honours Programme (30 credits of advanced coursework, e.g. PDEs)"
-      ]
+      "courses": ["Honours Programme (30 credits of advanced coursework, e.g. PDEs)"]
     },
     {
       "institution": "BlueDot Impact",
@@ -149,9 +145,7 @@
       "studyType": "Summer School (3 months)",
       "startDate": "2024-06-01",
       "endDate": "2024-08-31",
-      "courses": [
-        "Studied sparse autoencoder diffing and transfer; work accepted at the UniReps Workshop @ NeurIPS 2024 (blog post track)."
-      ]
+      "courses": ["Studied sparse autoencoder diffing and transfer; work accepted at the UniReps Workshop @ NeurIPS 2024 (blog post track)."]
     },
     {
       "institution": "Sapienza University of Rome",
@@ -160,9 +154,7 @@
       "studyType": "Bachelor’s Degree",
       "startDate": "2018-09-01",
       "endDate": "2021-09-01",
-      "courses": [
-        "Focused on formal logic and philosophy of language"
-      ]
+      "courses": ["Focused on formal logic and philosophy of language"]
     }
   ],
   "awards": [
@@ -185,19 +177,11 @@
   "interests": [
     {
       "name": "AI Safety",
-      "keywords": [
-        "Interpretability",
-        "Sparse Autoencoders",
-        "Causal Models"
-      ]
+      "keywords": ["Interpretability", "Sparse Autoencoders", "Causal Models"]
     },
     {
       "name": "Theoretical ML",
-      "keywords": [
-        "Representations",
-        "Optimization",
-        "Information Theory"
-      ]
+      "keywords": ["Representations", "Optimization", "Information Theory"]
     }
   ],
   "references": []
