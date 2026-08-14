@@ -10,7 +10,7 @@ render_with_liquid: false
 toc:
   sidebar: left
 notion_id: 3bc815d2-904b-801f-aa7e-d057d46bc2b7
-notion_last_edited: 2026-08-14T18:19:00.000Z
+notion_last_edited: 2026-08-14T19:57:00.000Z
 ---
 ## A. Denoising Diffusion Probabilistic Models (DDPMs)
 
@@ -167,7 +167,7 @@ Once the noise prediction network ϵ_θ is trained, we can generate new samples 
 
 ![notes-on-diffusion-models](/assets/img/posts/notes-on-diffusion-models/notion-3bc815d2.png)
 
-**TWO CHOICE FROM AMOUNT OF STOCHASTICITY** $$σ_t$$**.** The term $$σ_t$$ controls the amount of stochasticity in the reverse step. There are two common choices:
+**TWO CHOICE FROM AMOUNT OF STOCHASTICITY** $$σ_t$$. The term $$σ_t$$ controls the amount of stochasticity in the reverse step. There are two common choices:
 
 - $$σ_t = √β_t$$: This choice injects more noise, leading to higher variance and diversity.
 - $$σt = √β̃_t$$: This choice, derived from the true posterior variance, injects less noise. It produces sharper, lower-variance samples but relies more heavily on the network's accuracy.
@@ -406,7 +406,7 @@ This section covers the key architectural components and advanced techniques tha
 
 To guide generation toward specific concepts (e.g., a text prompt), guidance techniques are essential. The basis for these techniques is the unconditional score `sθ(xt)`.
 
-**Step 1: Classifier Guidance.** This technique uses a separate, pre-trained classifier `pφ(y|xt)` to steer the diffusion process. At each sampling step, the score is modified by adding the gradient of the classifier's log-probability, effectively pushing the sample `xt` to be more recognizable as the desired class `y`. The guided score is approximated as:  s_\theta(x_t) + \nabla_{x_t} \log p_\phi(y|x_t)
+**Step 1: Classifier Guidance.** This technique uses a separate, pre-trained classifier `pφ(y|xt)` to steer the diffusion process. At each sampling step, the score is modified by adding the gradient of the classifier's log-probability, effectively pushing the sample `xt` to be more recognizable as the desired class `y`. The guided score is approximated as:  s_\theta(x_t) + \nabla_{x_t} \log p_\phi(y\|x_t)
 
 **Step 2: Classifier-Free Guidance (CFG).** A more modern and widely used technique, CFG eliminates the need for an external classifier. It relies on a single conditional diffusion model trained on both conditional and unconditional inputs (by randomly dropping the conditioning information during training). During sampling, the final score is an extrapolation away from the unconditional score and towards the conditional score, creating an "implicit classifier" from the diffusion model itself.
 
@@ -462,11 +462,11 @@ The noising and denoising processes can be understood from a frequency perspecti
 
 
          _ _
-         |...|
-         |   |
- ____|   |____
-|        |   |        |
-|____|   |____| nergo
+         \|...\|
+         \|   \|
+ ____\|   \|____
+\|        \|   \|        \|
+\|____\|   \|____\| nergo
 
 
 
