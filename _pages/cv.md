@@ -4,7 +4,7 @@ permalink: /cv/
 title: cv
 nav: true
 nav_order: 5
-background: /assets/img/backgrounds/cv.jpg
+background: /assets/img/backgrounds/cv.webp
 background_position: 50% 48%
 cv_pdf: website_cv.pdf # you can also use external links here
 description: Scroll for a long version of my cv, or download the pdf for a shorter one.

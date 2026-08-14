@@ -4,7 +4,7 @@ permalink: /blog/
 title: blog
 nav: true
 nav_order: 1
-background: /assets/img/backgrounds/blog.jpg
+background: /assets/img/backgrounds/blog.webp
 background_position: 50% 52%
 pagination:
   enabled: true

@@ -5,7 +5,7 @@ title: publications
 description: kept in sync with my Google Scholar profile, in the same order.
 nav: true
 nav_order: 2
-background: /assets/img/backgrounds/publications.jpg
+background: /assets/img/backgrounds/publications.webp
 background_position: 50% 70%
 ---
 

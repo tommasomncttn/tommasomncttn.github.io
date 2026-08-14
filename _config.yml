@@ -227,7 +227,7 @@ defaults:
       path: ""
       type: "posts"
     values:
-      background: /assets/img/backgrounds/blog.jpg
+      background: /assets/img/backgrounds/blog.webp
       background_position: 50% 52%
 
 sass:
