@@ -116,9 +116,9 @@ Let′s outline some terminology for this chapter:
 
 - **x** → observation, 64 x 64 x 3 image
 - **z** → latent code from the V 
-- **q(z|x)** → encoder distribution from V 
+- **q(z\|x)** → encoder distribution from V 
 - **p(z)** → prior on latent distribution from V (standard normal)
-- **p(x|z)** → decoder distribution from V 
+- **p(x\|z)** → decoder distribution from V 
 - **h** → memory outputted by sampling the M
 - **a** → action 
 -  **r** → reward 
@@ -233,7 +233,7 @@ $$
 L_{VAE} = \mathbb{E}_{q(z|x)}[\log p(x|z)] - D_{KL}(q(z|x)||p(z))
 $$
 
-**NB**, if you model the pixel generation of the decoder p(x| μ, σ) as a normal _**maximizing the log-likelihood is equivalent to minimize the MSE**_ 
+**NB**, if you model the pixel generation of the decoder p(x\| μ, σ) as a normal _**maximizing the log-likelihood is equivalent to minimize the MSE**_ 
 
 <details class="notion-toggle" markdown="1">
 <summary markdown="span">`The code` </summary>
@@ -443,7 +443,7 @@ These are the 4 main types of world models and their most popular exmaples:
 ![notes-on-world-models](/assets/img/posts/notes-on-world-models/notion-3bc815d2.png)
 
 - The decoder is useful only for training, and it is never used to actually reconstruct state into the original one (if not for paper viz)
-- Therefore, _**agent does not reconstruct latent states in observation during planning**__._ 
+- Therefore, _**agent does not reconstruct latent states in observation during planning**_. 
 
 > _**Thinking in abstract symbols about the game state, without ever “rendering” a picture of the board**_
 
@@ -499,7 +499,7 @@ While JEPA models are still _**implicit world models**_, we will make a deep div
 
 I-Jepa is a _**joint embedding predictive architecture**_. Such architecture learn meaningful representation by trying to match masked representations of a student model with masked representation of a teacher model. 
 
-> _**INTUITION:**_ _**JEPA  predicts abstract representations rather than raw high-dimensional inputs, avoiding modeling irrelevant details**_
+> _**INTUITION: JEPA  predicts abstract representations rather than raw high-dimensional inputs, avoiding modeling irrelevant details**_
 
 ![notes-on-world-models](/assets/img/posts/notes-on-world-models/notion-3bc815d2.png)
 
@@ -517,7 +517,7 @@ There are a lot of details here:
 - differently from simple **joint embedding architecture** (see BYOL) or **contrastive methods** (SIMCLR), JEPA do not work with two different version of the same input where difference relies on different augmentation → _**no explicit look for representation invariance.**_
 - differently from **masked autoencoder,** model performance are not checked by reconstructing pixel image and checking mean squared error. Rather, they MSE is measured between patch-level hidden representation of the predictor and the teacher encoder. So, _**everything happens in a joint embedding space**_. 
 
-> _**INNOVATION:**_ _**JEPA take student-teacher comparison from contrastive methods and masking from MAEs. It leaves augmentation of contrastive methods and reconstruction via decoder of MAEs**_
+> _**INNOVATION: JEPA take student-teacher comparison from contrastive methods and masking from MAEs. It leaves augmentation of contrastive methods and reconstruction via decoder of MAEs**_
 
 ![notes-on-world-models](/assets/img/posts/notes-on-world-models/notion-3bc815d2.png)
 
@@ -527,7 +527,7 @@ There are a lot of details here:
 
 **MASKING ALGORITHM** A tricky detail of I-JEPA lies in the way it tokenize the image. The algorithm is:
 
-1. sample for each image `T` masks made by `Kt` patches→ _**each mask is a big rectangles (**_much bigger than what we used in MAEs_**)**_
+1. sample for each image `T` masks made by `Kt` patches→ _**each mask is a big rectangles (**_much bigger than what we used in MAEs)
 1. sample for each image `M` masks made by `Kc` patches:
     - each context mask of the M is used to predict each target mask
     - we explicitely never pick patches (masks) already present in the target to avoid dumb tasks
@@ -698,7 +698,7 @@ The mess comes with the predictor. The core ideas are these:
     - we want to say to the predictor, before doing its prediction that try to match the context to a given target_patch, which was is position.
     - to say to the predictor, we write this information by concat `positional_masked_information`  after the output_context + pos_embed
     - what are `positional_masked_information` ? learnable masked_tokens, so litterally nn.parameters (we have 1 for each possible patch) + unlernable positional emebdding (sinuisoidal)
-- after we pass to the predictor (context_output + pos) || positional_masked_information and we slice just the image of the positional_masked_information 
+- after we pass to the predictor (context_output + pos) \|\| positional_masked_information and we slice just the image of the positional_masked_information 
 - we project to the same dimension of the target_embed with the final layer of the predictor′s ViT
 
 ```python
@@ -851,7 +851,7 @@ While the masking strategy becomes 3D, the authors also make changes on how the 
 
 
 
-**APPLICATION 1: V-JEPA-2 with Action Conditioning (V-JEPA-2-AC)** V-JEPA-2-AC extends V-JEPA-2 by introducing **actions** into the prediction process, turning it into a latent dynamics model suitable for robotics. _**In this variant, the predictor is conditioned not only on the current visual embedding but also on robot actions and poses**__**.**_ **The target remains the embedding of a future video frame.**
+**APPLICATION 1: V-JEPA-2 with Action Conditioning (V-JEPA-2-AC)** V-JEPA-2-AC extends V-JEPA-2 by introducing **actions** into the prediction process, turning it into a latent dynamics model suitable for robotics. _**In this variant, the predictor is conditioned not only on the current visual embedding but also on robot actions and poses.**_ **The target remains the embedding of a future video frame.**
 
 ![notes-on-world-models](/assets/img/posts/notes-on-world-models/notion-3bc815d2.png)
 
@@ -859,7 +859,7 @@ While the masking strategy becomes 3D, the authors also make changes on how the 
 
 _Remarkably, this action-conditioned model can be trained with a very small amount of robot data, on the order of tens of hours, because the bulk of the visual and dynamical understanding has already been acquired during large-scale video pretraining. The action-conditioning phase essentially grounds the abstract dynamics learned from internet video into a specific embodied agent_
 
-**APPLICATION 2: Zero-Shot Planning with V-JEPA-2-AC** _**P**__**lanning with V-JEPA-2-AC is performed entirely in embedding space**_. A current observation is encoded into a latent state, and a goal image is encoded into the same latent space. The planner searches for a sequence of actions such that the predicted future embedding, obtained by rolling the latent dynamics forward, matches the goal embedding.
+**APPLICATION 2: Zero-Shot Planning with V-JEPA-2-AC** _**Planning with V-JEPA-2-AC is performed entirely in embedding space**_. A current observation is encoded into a latent state, and a goal image is encoded into the same latent space. The planner searches for a sequence of actions such that the predicted future embedding, obtained by rolling the latent dynamics forward, matches the goal embedding.
 
 
 

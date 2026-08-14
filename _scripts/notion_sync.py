@@ -103,6 +103,12 @@ def rich_text_to_md(rich: list) -> str:
         if core and ann.get("code"):
             text = f"{lead}`{core}`{trail}"
         elif core:
+            # raw pipes make kramdown parse the whole line as a table
+            core = core.replace("|", "\\|")
+            # styling a bare punctuation segment (e.g. an italic ".") emits
+            # colliding delimiters like "**_ _._" — render it plain instead
+            if not re.search(r"[A-Za-z0-9]", core):
+                ann = {}
             if ann.get("bold"):
                 core = f"**{core}**"
             if ann.get("italic"):
