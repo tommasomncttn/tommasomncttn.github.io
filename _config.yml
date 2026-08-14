@@ -221,6 +221,14 @@ defaults:
       path: "assets"
     values:
       sitemap: false
+  # Posts share the blog plate unless they bring their own (e.g. via the
+  # Notion "Background" property, which wins over this default).
+  - scope:
+      path: ""
+      type: "posts"
+    values:
+      background: /assets/img/backgrounds/blog.jpg
+      background_position: 50% 52%
 
 sass:
   style: compressed

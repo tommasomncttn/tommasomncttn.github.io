@@ -4,6 +4,8 @@ permalink: /blog/
 title: blog
 nav: true
 nav_order: 1
+background: /assets/img/backgrounds/blog.jpg
+background_position: 50% 52%
 pagination:
   enabled: true
   collection: posts
