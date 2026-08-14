@@ -28,6 +28,7 @@ import argparse
 import json
 import os
 import re
+import shutil
 import sys
 import unicodedata
 import urllib.error
@@ -340,17 +341,33 @@ def main() -> None:
             sys.exit(1)
         raise
     converted, cursor = 0, None
+    published_ids = set()
     while True:
         payload = {"filter": {"property": "Status", "select": {"equals": "Publish"}}}
         if cursor:
             payload["start_cursor"] = cursor
         data = api_request(f"/databases/{database_id}/query", payload)
         for page in data.get("results", []):
+            published_ids.add(page["id"])
             converted += convert_page(page)
         if not data.get("has_more"):
             break
         cursor = data["next_cursor"]
-    print(f"Done: {converted} post(s) created or updated.")
+
+    # Posts whose Notion page is no longer Published (status changed or page
+    # deleted) are removed, along with their images. Hand-written posts have
+    # no notion_id and are never touched.
+    removed = 0
+    for post in POSTS_DIR.glob("*.md"):
+        match = re.search(r"^notion_id:\s*(\S+)\s*$", post.read_text(encoding="utf-8"), re.MULTILINE)
+        if match and match.group(1) not in published_ids:
+            print(f"  removing: {post.name} (page no longer published in Notion)")
+            post.unlink()
+            slug_assets = ASSETS_DIR / post.stem[11:]  # strip the YYYY-MM-DD- prefix
+            if slug_assets.is_dir():
+                shutil.rmtree(slug_assets)
+            removed += 1
+    print(f"Done: {converted} post(s) created or updated, {removed} removed.")
 
 
 if __name__ == "__main__":
