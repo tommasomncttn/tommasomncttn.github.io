@@ -10,7 +10,9 @@
       primaryClass={cs.LG},
       preview      = {paper_injective.png},
       url={https://arxiv.org/abs/2510.15511}, 
-      selected={true}
+      selected={true},
+  scholar_rank = {006},
+  abstract     = {Transformer components such as non-linear activations and normalization are inherently non-injective, suggesting that different inputs could map to the same output and prevent exact recovery of the input from a model's representations. In this paper, we challenge this view. First, we prove mathematically that transformer language models mapping discrete input sequences to their corresponding sequence of continuous representations are injective and therefore lossless, a property established at initialization and preserved during training. Second, we confirm this result empirically through billions of collision tests on six state-of-the-art language models, and observe no collisions. Third, we operationalize injectivity: we introduce SipIt, the first algorithm that provably and efficiently reconstructs the exact input text from hidden activations, establishing linear-time guarantees and demonstrating exact invertibility in practice. Overall, our work establishes injectivity as a fundamental and exploitable property of language models, with direct implications for transparency, interpretability, and safe deployment.},
 }
 
 @inproceedings{mencattini2025exploratorycausalinferencesaence,
@@ -24,7 +26,9 @@
       preview      = {saence.png},
       url={https://arxiv.org/abs/2510.14073},
       selected={true},
-      oral={true}
+      oral={true},
+  scholar_rank = {007},
+  abstract     = {Randomized Controlled Trials are one of the pillars of science; nevertheless, they rely on hand-crafted hypotheses and expensive analysis. Such constraints prevent causal effect estimation at scale, potentially anchoring on popular yet incomplete hypotheses. We propose to discover the unknown effects of a treatment directly from data. For this, we turn unstructured data from a trial into meaningful representations via pretrained foundation models and interpret them via a sparse autoencoder. However, discovering significant causal effects at the neural level is not trivial due to multiple-testing issues and effects entanglement. To address these challenges, we introduce Neural Effect Search, a novel recursive procedure solving both issues by progressive stratification. After assessing the robustness of our algorithm on semi-synthetic experiments, we showcase, in the context of experimental ecology, the first successful unsupervised causal effect identification on a real-world scientific trial.},
 }
 
 @inproceedings{Minut_2025,
@@ -36,18 +40,21 @@
    year={2025},
    preview      = {mergenetic.png},
    pages={572–582},
-   selected={true}
+  scholar_rank = {008},
 }
 
-@misc{facchiano2025activationpatchinginterpretablesteering,
-      title={Activation Patching for Interpretable Steering in Music Generation}, 
+@article{facchiano2025activationpatchinginterpretablesteering,
+      title={Activation Patching for Interpretable Steering in Music Generation},
       author={Simone Facchiano and Giorgio Strano and Donato Crisostomi and Irene Tallini and Tommaso Mencattini and Fabio Galasso and Emanuele Rodolà},
+      journal={Under Sub.},
       year={2025},
       eprint={2504.04479},
       archivePrefix={arXiv},
       primaryClass={cs.SD},
       preview      = {activation_patching.png},
       url={https://arxiv.org/abs/2504.04479}, 
+  scholar_rank = {009},
+  abstract     = {Understanding how large audio models represent music, and using that understanding to steer generation, is both challenging and underexplored. Inspired by mechanistic interpretability in language models, where direction vectors in transformer residual streams are key to model analysis and control, we investigate similar techniques in the audio domain. This paper presents the first study of latent direction vectors in large audio models and their use for continuous control of musical attributes in text-to-music generation. Focusing on binary concepts like tempo (fast vs. slow) and timbre (bright vs. dark), we compute steering vectors using the difference-in-means method on curated prompt sets. These vectors, scaled by a coefficient and injected into intermediate activations, allow fine-grained modulation of specific musical traits while preserving overall audio quality. We analyze the effect of steering strength, compare injection strategies, and identify layers with the greatest influence. Our findings highlight the promise of direction-based steering as a more mechanistic and interpretable approach to controllable music generation.},
 }
 
 @inproceedings{mencattini2025merge3,
@@ -61,7 +68,9 @@
   primaryClass = {cs.NE},
   preview      = {merge3.png},
   url          = {https://arxiv.org/abs/2502.10436},
-  selected={true}
+  selected={true},
+  scholar_rank = {010},
+  abstract     = {Evolutionary model merging enables the creation of high-performing multi-task models but remains computationally prohibitive for consumer hardware. We introduce MERGE$^3$, an efficient framework that makes evolutionary merging feasible on a single GPU by reducing fitness computation costs 50$\times$ while preserving performance. MERGE$^3$ achieves this by Extracting a reduced dataset for evaluation, Estimating model abilities using Item Response Theory (IRT), and Evolving optimal merges via IRT-based performance estimators. Our method enables state-of-the-art multilingual and cross-lingual merging, transferring knowledge across languages with significantly lower computational overhead. We provide theoretical guarantees and an open-source library, democratizing high-quality model merging.},
 }
 
 @InProceedings{10.1007/978-3-031-34674-3_13,
@@ -79,7 +88,8 @@ address="Cham",
 pages="103--111",
 isbn="978-3-031-34674-3",
 preview      = cicero.png,
-url={https://link.springer.com/chapter/10.1007/978-3-031-34674-3_13}
+url={https://link.springer.com/chapter/10.1007/978-3-031-34674-3_13},
+  scholar_rank = {013},
 }
 
 @article{KutsykMencattiniFlorea2025_SAE_transfer,
@@ -90,5 +100,87 @@ url={https://link.springer.com/chapter/10.1007/978-3-031-34674-3_13}
   note         = {Blog post},
   url          = {https://unireps.org/blog/2025/do-sparse-autoencoders-saes-transfer-across-base-and-finetuned-language-models/},
   preview      = {sae.png},
-  howpublished = {Online}
+  howpublished = {Online},
+  scholar_rank = {011},
+}
+
+@inproceedings{calamo2023ciceroagpt2basedwritingassista,
+  title        = {CICERO: a GPT2-based writing assistant to investigate the effectiveness of specialized LLMs’ applications in e-justice},
+  author       = {Marco Calamo and Francesca De Luzi and Mattia Macrì and Tommaso Mencattini and Massimo Mecella},
+  booktitle    = {ECAI 2023},
+  year         = {2023},
+  preview      = {cicero.png},
+  url          = {https://journals.sagepub.com/doi/abs/10.3233/FAIA230641},
+  scholar_rank = {012},
+}
+
+@article{rulli2026subliminalclockslatenttimemode,
+  title        = {Subliminal Clocks: Latent Time Modelling in Diffusion Language Models},
+  author       = {Maximo Eduardo Rulli and Thomas Vaitses Fontanari and Simone Petruzzi and Federico Alvetreti and Giorgio Strano and Donato Crisostomi and Giorgos Nikolaou and Tommaso Mencattini and Andrea Santilli and Emanuele Rodolà and Simone Scardapane and Alessio Devoto},
+  journal      = {Under Sub.},
+  year         = {2026},
+  preview      = {auto-2607-01774.png},
+  eprint       = {2607.01774},
+  archivePrefix= {arXiv},
+  primaryClass = {cs.AI},
+  url          = {https://arxiv.org/abs/2607.01774},
+  scholar_rank = {001},
+  abstract     = {Diffusion Language Models (DLMs) have recently emerged as a promising alternative to autoregressive models. Unlike standard diffusion-based approaches, DLMs are not explicitly conditioned on a timestep, raising a natural question: do these models internally represent denoising progress, and how is such information used downstream? In this work, we show that DLMs do in fact encode a latent representation related to the diffusion timestep within their residual streams. We find that this signal can be reliably extracted using probes across layers, indicating that denoising progress is decodable from internal activations. We further demonstrate that steering the model along a low-dimensional subspace associated with the inferred timestep allows us to systematically modulate its notion of denoising progress, leading to predictable changes in model confidence and entropy. Finally, we analyse the geometry of the identified representation, showing that it exhibits structured and interpretable properties in activation space, and shedding light on how such a signal is processed by these models.},
+}
+
+@article{aidakhmetov2026steeringvectorsareanadversaria,
+  title        = {Steering Vectors are an Adversarial Attack Surface},
+  author       = {Abzal Aidakhmetov and Donato Crisostomi and Tommaso Mencattini and Adrian Robert Minut and Iacopo Masi and Emanuele Rodolà},
+  journal      = {Under Sub.},
+  year         = {2026},
+  preview      = {auto-2606-05958.png},
+  eprint       = {2606.05958},
+  archivePrefix= {arXiv},
+  primaryClass = {cs.LG},
+  url          = {https://arxiv.org/abs/2606.05958},
+  scholar_rank = {002},
+  abstract     = {Activation steering has become a popular way to control Large Language Model (LLM) behavior without fine-tuning. Since the technique is plug-and-play, users share datasets and precomputed vectors to steer model activations. However, we show that a \emph(stealth data poisoning attack) silently compromises this pipeline. By substituting $4(-)6\%$ of tokens in the steering dataset, an attacker can silently align the resulting vector with an anti-refusal direction. This jailbreaks the target model while preserving the intended steering effect on benign prompts. Under this threat model, a malicious actor can distribute an apparently safe bundle containing texts, vectors, and weights, alongside an equivalence certificate that the end-user can verify. We test the attack on two open-weight model families and eight model-attribute combinations, observing that poisoned vectors reach an absolute attack success rate (ASR) of $20(-)55\%$, $+19\%$ to $+51\%$ over a clean reference. Finally, we find that a refusal-direction orthogonalization defense can recover $(\approx)82\%$ of the ASR gap without harming benign behavior.},
+}
+
+@article{strano2026howneurallossesshapevaelatents,
+  title        = {How Neural Losses Shape VAE Latents},
+  author       = {Giorgio Strano and Luca Cerovaz and Michele Mancusi and Tommaso Mencattini and Emanuele Rodolà},
+  journal      = {Under Sub.},
+  year         = {2026},
+  preview      = {auto-2606-00635.png},
+  eprint       = {2606.00635},
+  archivePrefix= {arXiv},
+  primaryClass = {cs.LG},
+  url          = {https://arxiv.org/abs/2606.00635},
+  scholar_rank = {003},
+  abstract     = {Modern VAEs are rarely trained with the pointwise likelihood implied by the standard $β$-VAE objective. In practice, pointwise reconstruction is often combined with perceptual and adversarial losses, despite a lack of understanding of how this changes the latent dynamics of the model. We show that the choice of reconstruction loss reshapes the rate-distortion problem itself, altering both the information content and the geometry of the learned latent space in ways that may be invisible from reconstructions alone. First, we prove and verify empirically that augmenting pointwise reconstruction with neural terms, such as perceptual and adversarial objectives, reduces the amount of information stored in the latent representations. Second, we show that neural reconstruction losses systematically change the geometry of the latent space: they make representations more isotropic and distribute uncertainty more evenly across latent dimensions, producing different posterior variance profiles. These findings highlight how the rate-distortion tradeoff is not a comprehensive lens to understand the behavior of VAEs, and we propose a more mechanistic approach to investigate how the choice of a distortion metric reshapes the optimization problem.},
+}
+
+@article{mencattini2026theratedistortionpolysemantici,
+  title        = {The Rate-Distortion-Polysemanticity Tradeoff in SAEs},
+  author       = {Tommaso Mencattini and Francesco Montagna and Francesco Locatello},
+  journal      = {Under Sub.},
+  year         = {2026},
+  preview      = {auto-2605-14694.png},
+  eprint       = {2605.14694},
+  archivePrefix= {arXiv},
+  primaryClass = {cs.LG},
+  url          = {https://arxiv.org/abs/2605.14694},
+  selected     = {true},
+  scholar_rank = {004},
+  abstract     = {Sparse Autoencoders (SAEs) that can accurately reconstruct their input (minimizing distortion) by making efficient use of few features (minimizing the rate) often fail to learn monosemantic representations (highly interpretable), limiting their usefulness for mechanistic interpretability. In this paper, we characterise this tension in learning faithful, efficient, and interpretable explanations, introducing the Rate-Distortion-Polysemanticity tradeoff in SAEs. Under toy-modeling assumptions, we theoretically and empirically show that restricting the SAE to be monosemantic necessarily comes with an increase in rate and distortion. Assuming a generative model behind the input observations, we further demonstrate that the degree of polysemanticity of optimal SAEs is determined by the training data distribution, especially by the probability of features to co-occur. Finally, we extend the analysis to real-world settings by deriving necessary conditions that a polysemanticity measure should satisfy when the data-generating process is unknown, and we benchmark existing proxy metrics on SAEs trained on Large Language Models. Taken together, our findings show that polysemanticity is a data problem that should be accounted for when addressing it at the architectural and optimization level.},
+}
+
+@article{iacobelli2026multiobjectiveevolutionarymerg,
+  title        = {Multi-objective Evolutionary Merging Enables Efficient Reasoning Models},
+  author       = {Mario Iacobelli and Adrian Robert Minut and Tommaso Mencattini and Donato Crisostomi and Andrea Santilli and Iacopo Masi and Emanuele Rodolà},
+  journal      = {COLM},
+  year         = {2026},
+  preview      = {auto-2604-06465.png},
+  eprint       = {2604.06465},
+  archivePrefix= {arXiv},
+  primaryClass = {cs.CL},
+  url          = {https://arxiv.org/abs/2604.06465},
+  scholar_rank = {005},
+  abstract     = {Reasoning models achieve strong performance on complex problems by leveraging long chains of thought, but this deliberate reasoning incurs substantial inference-time cost. The Long-to-Short (L2S) reasoning problem seeks to preserve accuracy while reducing generated tokens. Yet, current training-free model merging approaches rely on brittle, fixed-hyperparameter arithmetic methods that force suboptimal compromises. We introduce \textbf(Evo-L2S), a multi-objective evolutionary model merging framework that explicitly optimizes accuracy and output length to recover a Pareto front of merged models. To make this search computationally tractable, we propose an entropy-based subset sampling technique that substantially reduces fitness-estimation overhead. Across six mathematical reasoning benchmarks, Evo-L2S reduces reasoning length by over 50\% at the 1.5B and 7B scales while preserving or improving problem-solving accuracy; at 14B, the steeper Pareto front reveals that attainable compression depends on the intrinsic compressibility of the reasoning model. Overall, Evo-L2S shows that reasoning models can be made substantially more concise while preserving strong problem-solving performance.},
 }

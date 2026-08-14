@@ -32,10 +32,24 @@ $grey-900: #212529;
 $white-color: #ffffff !default;
 $black-color: #000000 !default;
 
+// Engraving palette — ink on aged paper (light) / moonlit night sky (dark).
+// Deliberately warmer and bluer than tufte-css (#fffff8) so it reads as its own.
+$paper-color: #f5f1e8; // aged paper background
+$paper-card-color: #faf7f0; // slightly brighter card surface
+$ink-color: #211d18; // warm ink black
+$ink-light-color: #6f675a; // faded ink for secondary text
+$accent-color: #38536e; // Prussian blue (moonlight)
+$accent-dark-color: #253b50; // hover state of the accent
+$night-bg-color: #12151b; // night sky background
+$night-card-color: #191d25; // card surface at night
+$moon-text-color: #d9d4c7; // moonlit paper text
+$moon-text-light-color: #8f8a7d; // dimmed text at night
+$moon-accent-color: #a9c4dd; // pale moonlight blue
+
 // Theme colors
 
-$code-bg-color-light: rgba($purple-color, 0.05);
-$code-bg-color-dark: #2c3237 !default;
+$code-bg-color-light: #ece7da;
+$code-bg-color-dark: #1a1e26 !default;
 
 // Font awesome location
 $fa-font-path: "../webfonts";

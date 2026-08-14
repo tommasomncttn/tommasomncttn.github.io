@@ -1,0 +1,48 @@
+name: Sync Notion Blog Posts
+
+on:
+  schedule:
+    - cron: "0 5 * * *" # daily, 05:00 UTC
+  workflow_dispatch:
+
+jobs:
+  notion-sync:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      # See CUSTOMIZE.md for details on how to set up PAT so this commit
+      # also triggers the deploy workflow:
+      #        with:
+      #          token: ${{ secrets.PAT }}
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.13"
+
+      - name: Sync posts from Notion
+        env:
+          NOTION_TOKEN: ${{ secrets.NOTION_TOKEN }}
+          NOTION_DATABASE_ID: ${{ secrets.NOTION_DATABASE_ID }}
+        run: |
+          if [ -z "$NOTION_TOKEN" ] || [ -z "$NOTION_DATABASE_ID" ]; then
+            echo "⚠️ NOTION_TOKEN / NOTION_DATABASE_ID secrets not configured — skipping." >> $GITHUB_STEP_SUMMARY
+            exit 0
+          fi
+          python _scripts/notion_sync.py
+
+      - name: Configure Git
+        run: |
+          git config --local user.email "actions@github.com"
+          git config --local user.name "GitHub Actions"
+
+      - name: Commit and push if changed
+        run: |
+          git add _posts assets/img/posts
+          git diff --staged --quiet || (
+            echo "📤 Committing synced posts..."
+            git commit -m "Sync blog posts from Notion"
+            git push
+          )

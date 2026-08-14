@@ -1,0 +1,610 @@
+/*******************************************************************************
+ * Engraving re-skin: classic serif typography on aged paper, with Gustave
+ * Doré's "Astolfo travels to the moon" as a fixed background plate.
+ * Light mode prints the engraving on paper (multiply); dark mode lets the
+ * moon glow out of the night sky (screen). Loaded last so it wins the cascade.
+ ******************************************************************************/
+
+$serif-stack: "EB Garamond", "Iowan Old Style", Palatino, "Palatino Linotype", "Book Antiqua", Georgia, serif;
+$mono-stack: "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+
+/* ---------------------------------------------------------------- canvas -- */
+
+html {
+  background-color: var(--global-bg-color);
+}
+
+body {
+  font-family: $serif-stack;
+  font-size: 1.18rem;
+  line-height: 1.55;
+  /* transparent so the fixed ::before/::after plates (negative z-index) show through;
+     the page color lives on <html> */
+  background-color: transparent;
+  text-rendering: optimizeLegibility;
+  font-kerning: normal;
+}
+
+/* The engraving plate, pinned behind everything. */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -2;
+  /* Frame the lower moon with the winged chariot (image band ~33-80% down,
+     chariot on the right). 64% vertical centers that band under cover
+     cropping; 60% horizontal keeps the chariot in frame when narrow
+     viewports crop the sides. */
+  background: url("../img/dore-moon.jpg") no-repeat 60% 64% / cover;
+  opacity: var(--global-engraving-opacity);
+  /* dark-only site: the moon glows out of the night sky */
+  mix-blend-mode: screen;
+  pointer-events: none;
+}
+
+/* Paper wash: keeps the reading area calm while the moon stays present up top. */
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(
+    to bottom,
+    transparent 0,
+    color-mix(in srgb, var(--global-bg-color) 45%, transparent) 40vh,
+    color-mix(in srgb, var(--global-bg-color) 82%, transparent) 80vh,
+    var(--global-bg-color) 105vh
+  );
+  pointer-events: none;
+}
+
+::selection {
+  background: color-mix(in srgb, var(--global-theme-color) 24%, var(--global-bg-color));
+}
+
+/* ------------------------------------------------------------ typography -- */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.post-title,
+.navbar-brand {
+  font-family: $serif-stack;
+  letter-spacing: 0.01em;
+}
+
+h1.post-title,
+.header-bar h1 {
+  font-weight: 500;
+
+  .font-weight-bold {
+    font-weight: 700;
+  }
+}
+
+.desc,
+.post-description,
+.more-info {
+  font-family: $serif-stack;
+  font-style: italic;
+}
+
+article,
+.post-content {
+  p {
+    margin-bottom: 1.1rem;
+  }
+}
+
+code,
+pre,
+kbd,
+samp,
+.highlight,
+.highlight * {
+  font-family: $mono-stack;
+}
+
+code {
+  font-size: 0.82em;
+}
+
+/* the base theme's `code { white-space: normal }` (for inline code) must not
+   collapse newlines in fenced blocks */
+pre code {
+  white-space: pre;
+  word-wrap: normal;
+  background: transparent;
+  padding: 0;
+}
+
+blockquote {
+  border-left: 2px solid var(--global-theme-color);
+  background: transparent;
+  font-style: italic;
+  font-size: 1.1rem;
+}
+
+/* ------------------------------------------------------------------ nav -- */
+
+.navbar {
+  opacity: 1;
+  background-color: color-mix(in srgb, var(--global-bg-color) 80%, transparent);
+  backdrop-filter: blur(10px) saturate(1.1);
+  -webkit-backdrop-filter: blur(10px) saturate(1.1);
+  border-bottom: 1px solid var(--global-divider-color);
+}
+
+.navbar.navbar-light {
+  .navbar-brand {
+    font-size: 1.35rem;
+    font-weight: 600;
+  }
+
+  .navbar-nav .nav-item .nav-link {
+    font-family: $serif-stack;
+    font-size: 1.08rem;
+    letter-spacing: 0.02em;
+  }
+
+  .navbar-nav .nav-item.active > .nav-link {
+    font-weight: 600;
+  }
+}
+
+.navbar .dropdown-menu,
+.btn-group.dropdown .dropdown-menu {
+  background-color: var(--global-card-bg-color);
+}
+
+/* -------------------------------------------------------------- surfaces -- */
+
+.card {
+  background-color: var(--global-card-bg-color);
+  border: 1px solid var(--global-divider-color);
+  box-shadow: none;
+}
+
+.profile img {
+  border: 1px solid var(--global-divider-color);
+}
+
+footer.sticky-bottom,
+footer.fixed-bottom {
+  background-color: var(--global-footer-bg-color);
+  border-top: 1px solid var(--global-divider-color);
+  font-family: $serif-stack;
+  font-size: 0.95rem;
+
+  .container {
+    color: var(--global-footer-text-color);
+  }
+}
+
+/* Publications: thumbnail plate on the left, title/authors/venue/links and
+   an expandable abstract on the right. */
+.publications {
+  .card {
+    background-color: transparent;
+    border: none;
+  }
+
+  ol.bibliography li {
+    margin-bottom: 0;
+    border-bottom: 1px solid var(--global-divider-color);
+
+    &:last-child {
+      border-bottom: none;
+    }
+  }
+
+  .pub-entry {
+    display: flex;
+    align-items: flex-start;
+    gap: 1.7rem;
+    padding: 1.7rem 0;
+  }
+
+  .pub-thumb {
+    flex: 0 0 200px;
+
+    figure {
+      margin: 0;
+    }
+
+    picture {
+      display: block;
+    }
+
+    img.preview {
+      display: block;
+      width: 200px;
+      height: 150px;
+      object-fit: contain;
+      /* white plate in both modes: paper figures are set on white */
+      background: #fdfcf8;
+      border: 1px solid var(--global-divider-color);
+      border-radius: 6px;
+      padding: 6px;
+      cursor: zoom-in;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.3);
+      transition:
+        transform 0.3s cubic-bezier(0.2, 0, 0.2, 1),
+        box-shadow 0.3s ease,
+        border-color 0.3s ease;
+      will-change: transform;
+
+      &:hover {
+        position: relative;
+        z-index: 5;
+        border-color: color-mix(in srgb, var(--global-theme-color) 65%, transparent);
+        box-shadow:
+          0 12px 30px rgba(0, 0, 0, 0.5),
+          0 0 0 3px color-mix(in srgb, var(--global-theme-color) 22%, transparent);
+      }
+    }
+  }
+
+  ol.bibliography li .pub-thumb img.preview:hover {
+    transform: scale(1.15);
+  }
+
+  .pub-thumb-placeholder {
+    width: 200px;
+    height: 150px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.7rem;
+    color: var(--global-text-color-light);
+    border: 1px dashed var(--global-divider-color);
+    border-radius: 6px;
+  }
+
+  .pub-main {
+    flex: 1 1 auto;
+    min-width: 0;
+
+    .title {
+      font-size: 1.22rem;
+      font-weight: 600;
+      line-height: 1.32;
+      margin-bottom: 0.2rem;
+
+      a {
+        color: var(--global-text-color);
+
+        &:hover {
+          color: var(--global-theme-color);
+          text-decoration: none;
+        }
+      }
+    }
+
+    .author {
+      font-size: 0.98rem;
+      color: var(--global-text-color-light);
+
+      > em {
+        font-style: normal;
+        font-weight: 700;
+        color: var(--global-text-color);
+        border-bottom: none;
+      }
+    }
+
+    .periodical {
+      font-size: 0.95rem;
+      font-style: italic;
+      color: var(--global-theme-color);
+      margin: 0.2rem 0 0.35rem;
+    }
+  }
+
+  .pub-oral {
+    display: inline-block;
+    vertical-align: 0.1em;
+    margin-left: 0.5em;
+    padding: 0.05em 0.55em;
+    font-family: $serif-stack;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 0.72rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #fdfcf8;
+    background: var(--global-highlight-color);
+    border-radius: 999px;
+  }
+
+  .links {
+    display: inline-block;
+    margin-right: 0.2rem;
+
+    a.btn {
+      background: transparent;
+      border: none;
+      box-shadow: none;
+      padding: 0;
+      margin: 0 1.1rem 0 0;
+      font-size: 0.82rem;
+      font-weight: 600;
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+      color: var(--global-theme-color);
+
+      &:hover {
+        color: var(--global-hover-color);
+        text-decoration: underline;
+        background: transparent;
+      }
+    }
+  }
+
+  .pub-abstract {
+    /* collapsed: sits inline right after the link row; open: full-width block */
+    display: inline-block;
+    vertical-align: baseline;
+
+    &[open] {
+      display: block;
+      margin-top: 0.1rem;
+    }
+
+    summary {
+      display: inline-block;
+      cursor: pointer;
+      font-size: 0.82rem;
+      font-weight: 600;
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+      color: var(--global-text-color-light);
+
+      &:hover {
+        color: var(--global-theme-color);
+      }
+    }
+
+    p {
+      font-size: 0.95rem;
+      line-height: 1.5;
+      color: var(--global-text-color-light);
+      margin: 0.45rem 0 0;
+    }
+  }
+
+  /* Same specificity as the base theme's rules (this file loads last, so it
+     wins the tie): no boxed buttons, no underline on the highlighted author. */
+  ol.bibliography li {
+    .author > em {
+      border-bottom: none;
+    }
+
+    .links a.btn {
+      border: none;
+      padding: 0;
+      color: var(--global-theme-color);
+
+      &:hover {
+        color: var(--global-hover-color);
+        border: none;
+      }
+    }
+  }
+
+  @media (max-width: 575px) {
+    .pub-entry {
+      flex-direction: column;
+      gap: 0.9rem;
+    }
+
+    .pub-thumb {
+      flex-basis: auto;
+      width: 100%;
+
+      img.preview {
+        width: 100%;
+        height: 170px;
+      }
+    }
+
+    /* full-width plates: scaling would overflow the viewport */
+    ol.bibliography li .pub-thumb img.preview:hover {
+      transform: none;
+    }
+
+    .pub-thumb-placeholder {
+      width: 100%;
+    }
+  }
+}
+
+/* ------------------------------------------- Publication preview lightbox -- */
+/* Opened by pub-lightbox.js on thumbnail click. The img carries no size
+   constraints besides the viewport cap, so it renders at natural size. */
+
+.pub-lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.85);
+  cursor: zoom-out;
+  animation: pub-lightbox-fade 0.2s ease;
+
+  img {
+    max-width: 94vw;
+    max-height: 94vh;
+    width: auto;
+    height: auto;
+    /* same white plate as the thumbnails */
+    background: #fdfcf8;
+    border-radius: 6px;
+    padding: 8px;
+  }
+}
+
+@keyframes pub-lightbox-fade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* ------------------------------------------- Notion-flavored post blocks -- */
+/* Structures emitted by _scripts/notion_sync.py mirroring the Notion page:
+   toggles, callouts, and columns keep their original layout and ratios. */
+
+.post-content {
+  img {
+    display: block;
+    margin: 0.9rem auto;
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+  }
+
+  .notion-columns {
+    display: flex;
+    gap: 1.5rem;
+    align-items: flex-start;
+    margin: 0.6rem 0;
+
+    .notion-column {
+      min-width: 0;
+
+      > :first-child {
+        margin-top: 0;
+      }
+
+      > :last-child {
+        margin-bottom: 0;
+      }
+    }
+
+    @media (max-width: 575px) {
+      flex-direction: column;
+
+      .notion-column {
+        flex: 1 1 auto !important;
+        width: 100%;
+      }
+    }
+  }
+
+  .notion-callout {
+    display: flex;
+    gap: 0.9rem;
+    align-items: flex-start;
+    margin: 1.1rem 0;
+    padding: 1rem 1.15rem;
+    border: 1px solid var(--global-divider-color);
+    border-radius: 8px;
+    background: rgba(217, 212, 199, 0.06);
+
+    .notion-callout-icon {
+      font-size: 1.25rem;
+      line-height: 1.45;
+    }
+
+    .notion-callout-body {
+      flex: 1;
+      min-width: 0;
+
+      > :first-child {
+        margin-top: 0;
+      }
+
+      > :last-child {
+        margin-bottom: 0;
+      }
+    }
+
+    &.notion-callout--red {
+      background: rgba(183, 28, 28, 0.16);
+      border-color: rgba(183, 28, 28, 0.4);
+    }
+
+    &.notion-callout--blue {
+      background: rgba(169, 196, 221, 0.1);
+      border-color: rgba(169, 196, 221, 0.35);
+    }
+
+    &.notion-callout--green {
+      background: rgba(76, 125, 92, 0.18);
+      border-color: rgba(76, 125, 92, 0.45);
+    }
+
+    &.notion-callout--yellow {
+      background: rgba(163, 135, 78, 0.16);
+      border-color: rgba(163, 135, 78, 0.4);
+    }
+
+    &.notion-callout--purple {
+      background: rgba(136, 116, 176, 0.16);
+      border-color: rgba(136, 116, 176, 0.4);
+    }
+  }
+
+  .notion-divider {
+    text-align: center;
+    color: var(--global-text-color-light);
+    font-size: 1.15rem;
+    margin: 2.2rem auto;
+  }
+
+  mjx-container[display="true"] {
+    display: block;
+    text-align: center;
+    margin: 1rem auto;
+    overflow-x: auto;
+  }
+
+  .notion-toggle {
+    margin: 0.9rem 0;
+    padding: 0.6rem 1rem;
+    border: 1px solid var(--global-divider-color);
+    border-radius: 8px;
+
+    > summary {
+      cursor: pointer;
+      font-weight: 600;
+
+      &:hover {
+        color: var(--global-theme-color);
+      }
+    }
+
+    &[open] > summary {
+      margin-bottom: 0.7rem;
+      padding-bottom: 0.6rem;
+      border-bottom: 1px solid var(--global-divider-color);
+    }
+
+    > :last-child {
+      margin-bottom: 0;
+    }
+  }
+}
+
+/* Keep tables and news readable over the plate. Bootstrap hard-codes
+   .table { color: #212529 }; the old dark mode fixed this via theme.js
+   adding .table-dark at runtime — with the toggle gone, do it in CSS. */
+.table,
+.table-responsive {
+  background-color: transparent;
+}
+
+table,
+.table,
+.table th,
+.table td {
+  color: var(--global-text-color);
+}

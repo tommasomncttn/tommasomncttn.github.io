@@ -1,0 +1,56 @@
+name: Update Publications from Google Scholar
+
+on:
+  schedule:
+    - cron: "0 6 * * 1" # Monday morning
+  workflow_dispatch:
+
+jobs:
+  update-publications:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      # See CUSTOMIZE.md for details on how to set up PAT so this commit
+      # also triggers the deploy workflow:
+      #        with:
+      #          token: ${{ secrets.PAT }}
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.13"
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Run publications update script
+        shell: bash
+        run: |
+          set +e
+          echo "🚀 Syncing papers.bib with Google Scholar..."
+          timeout 300 python bin/update_publications.py
+          status=$?
+          if [ $status -eq 0 ]; then
+            echo "✅ Publications sync succeeded." >> $GITHUB_STEP_SUMMARY
+          else
+            echo "❌ Publications sync failed with exit code $status." >> $GITHUB_STEP_SUMMARY
+          fi
+          set -e
+
+      - name: Configure Git
+        run: |
+          git config --local user.email "actions@github.com"
+          git config --local user.name "GitHub Actions"
+
+      - name: Commit and push if changed
+        run: |
+          git add _bibliography/papers.bib assets/img/publication_preview
+          git diff --staged --quiet || (
+            echo "📤 Committing and pushing new publications..."
+            git commit -m "Add new publications from Google Scholar"
+            git push
+          )

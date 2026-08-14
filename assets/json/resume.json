@@ -4,7 +4,7 @@
     "label": "MSc Data Science Student & Researcher",
     "email": "tommaso.mencattini@epfl.ch",
     "url": "",
-    "summary": "MSc student in Data Science at EPFL with research experience at ISTA, ETH Zürich, and GLADIA. My work focuses on large language models, model merging, causal inference, and interpretability. First-author papers at ICML, ACL, and publications at NeurIPS workshops and ECAI.",
+    "summary": "MSc student in Data Science at EPFL with research experience at ISTA, ETH Zürich, and GLADIA. My work focuses on large language models, interpretability, causal inference, and AI safety. First-author papers at ICLR, ICML, and ACL, plus publications at NeurIPS workshops and ECAI. Co-PI of a Coefficient Giving-funded research team on activation steering at Rome AI Safety.",
     "location": {
       "city": "Lausanne",
       "countryCode": "CH",
@@ -23,8 +23,19 @@
       }
     ]
   },
-
   "work": [
+    {
+      "name": "Rome AI Safety (RAIS)",
+      "position": "Co-Principal Investigator",
+      "url": "",
+      "location": "Rome, Italy",
+      "startDate": "2026-01-01",
+      "endDate": "",
+      "summary": "Proposer and co-PI, together with Donato Crisostomi, of a 7-person research team funded by Coefficient Giving with $80k.",
+      "highlights": [
+        "Developing disentangled, composable steering vectors for fine-grained behavioral control via white-box interventions in activation space."
+      ]
+    },
     {
       "name": "Institute of Science and Technology Austria (ISTA)",
       "position": "Research Intern",
@@ -32,10 +43,9 @@
       "location": "Vienna, Austria",
       "startDate": "2025-07-01",
       "endDate": "",
-      "summary": "Research in causal learning and multimodal foundation models within the Locatello Group.",
+      "summary": "Research on causality and multimodal foundation models within the Locatello Group (PI: Francesco Locatello).",
       "highlights": [
-        "Co-first author for a paper on unsupervised causal effect discovery in RCTs (theory + library).",
-        "Developing frameworks combining causality and deep learning for large-scale multimodal systems."
+        "Co-first author of an ICLR 2026 Oral (top 1.2%): a framework (theory + library) for unsupervised causal effect discovery in RCTs."
       ]
     },
     {
@@ -45,11 +55,10 @@
       "location": "Rome, Italy",
       "startDate": "2024-04-01",
       "endDate": "",
-      "summary": "Research on scalable model merging, interpretability, and ability estimation for large language models.",
+      "summary": "Research on scalable model merging, interpretability, and ability estimation for large language models (PI: Emanuele Rodolà).",
       "highlights": [
-        "Scaled evolutionary model merging using consumer GPUs (50× speedup, 2% data usage, 85% performance retained).",
-        "Two first-author papers accepted to ICML 2025 and ACL 2025.",
-        "Co-first author for a paper proving injectivity of LLM representations and presenting the first exact inversion algorithm (viral tweet with 4.7M views)."
+        "Scaled evolutionary model merging of LLMs to consumer GPUs and developed ability-estimation theory via Item Response Theory: 50× faster, 2% of the data, 85% performance retained. Two first-author papers at ICML 2025 and ACL 2025.",
+        "Co-first author of an ICLR 2026 paper proving injectivity of LLM hidden representations and presenting the first exact inversion algorithm (5M views on the tweeprint)."
       ]
     },
     {
@@ -59,7 +68,7 @@
       "location": "Zurich, Switzerland",
       "startDate": "2023-06-01",
       "endDate": "2023-08-31",
-      "summary": "Applied causal inference to explain and assess LLM performance on math word problems.",
+      "summary": "Applied causal inference to explain and assess LLM performance on math word problems (PI: Mrinmaya Sachan).",
       "highlights": [
         "Worked on applying causal inference techniques to large language models to detect spurious heuristics in reasoning tasks.",
         "Ran large-scale experiments on high-performance computing clusters."
@@ -72,7 +81,7 @@
       "location": "Amsterdam, Netherlands",
       "startDate": "2023-01-01",
       "endDate": "2023-06-01",
-      "summary": "Research at the intersection of knowledge graphs and hallucination mitigation in LLMs.",
+      "summary": "Mitigated hallucinations in LLMs using knowledge graphs for content planning (PI: Ilaria Tiddi).",
       "highlights": [
         "Designed Text-to-Graph and Graph-to-Text methods for content planning.",
         "Trained and evaluated multiple knowledge-graph-integrated LLMs."
@@ -106,9 +115,7 @@
       ]
     }
   ],
-
   "volunteer": [],
-
   "education": [
     {
       "institution": "École Polytechnique Fédérale de Lausanne (EPFL)",
@@ -118,8 +125,10 @@
       "url": "https://epfl.ch",
       "startDate": "2024-09-01",
       "endDate": "",
-      "score": "GPA: 5.5/6",
-      "courses": ["Coursework focused on the Mathematics of data science"]
+      "score": "GPA: 5.7/6",
+      "courses": [
+        "Coursework focused on the Mathematics of data science"
+      ]
     },
     {
       "institution": "Vrije Universiteit Amsterdam",
@@ -129,7 +138,20 @@
       "startDate": "2021-09-01",
       "endDate": "2024-07-01",
       "score": "GPA: 9.2/10",
-      "courses": ["Honours Programme (30 credits of advanced coursework, e.g. PDEs)"]
+      "courses": [
+        "Honours Programme (30 credits of advanced coursework, e.g. PDEs)"
+      ]
+    },
+    {
+      "institution": "BlueDot Impact",
+      "location": "Remote",
+      "area": "AI Safety",
+      "studyType": "Summer School (3 months)",
+      "startDate": "2024-06-01",
+      "endDate": "2024-08-31",
+      "courses": [
+        "Studied sparse autoencoder diffing and transfer; work accepted at the UniReps Workshop @ NeurIPS 2024 (blog post track)."
+      ]
     },
     {
       "institution": "Sapienza University of Rome",
@@ -138,10 +160,11 @@
       "studyType": "Bachelor’s Degree",
       "startDate": "2018-09-01",
       "endDate": "2021-09-01",
-      "courses": ["Focused on formal logic and philosophy of language"]
+      "courses": [
+        "Focused on formal logic and philosophy of language"
+      ]
     }
   ],
-
   "awards": [
     {
       "title": "KHMW Young Talent Incentive Award",
@@ -156,60 +179,26 @@
       "summary": "Ranked 1st out of 270 students by developing an intelligent agent for the card game Schnapsen."
     }
   ],
-
-  "publications": [
-    {
-      "name": "Language Models are Injective and Hence Invertible",
-      "publisher": "Under Review",
-      "summary": "",
-      "authors": ["G. Nikolaou*", "T. Mencattini*", "et al."]
-    },
-    {
-      "name": "Exploratory Causal Inference in SAEnce",
-      "publisher": "Under Review",
-      "authors": ["T. Mencattini*", "R. Cadei*", "et al."]
-    },
-    {
-      "name": "MERGE³: Efficient Evolutionary Merging on Consumer-grade GPUs",
-      "publisher": "ICML 2025",
-      "authors": ["T. Mencattini*", "A. R. Minut*", "et al."]
-    },
-    {
-      "name": "Activation Patching for Interpretable Steering in Music Generation",
-      "publisher": "Under Review",
-      "authors": ["S. Facchiano", "G. Strano", "D. Crisostomi", "I. Tallini", "T. Mencattini", "et al."]
-    },
-    {
-      "name": "Mergenetic: A Simple Evolutionary Model Merging Library",
-      "publisher": "ACL 2025 · System Demonstrations",
-      "authors": ["A. R. Minut*", "T. Mencattini*", "et al."]
-    },
-    {
-      "name": "CICERO: A GPT-2-based Writing Assistant in e-justice",
-      "publisher": "ECAI 2023",
-      "authors": ["M. Calamo", "F. De Luzi", "M. Macrì", "T. Mencattini", "et al."]
-    },
-    {
-      "name": "Do Sparse Autoencoders Transfer Across Base and Finetuned LLMs?",
-      "publisher": "NeurIPS 2024 Workshop",
-      "authors": ["T. Kutsyk*", "T. Mencattini*", "et al."]
-    }
-  ],
-
+  "publications": [],
   "skills": [],
-
   "languages": [],
-
   "interests": [
     {
       "name": "AI Safety",
-      "keywords": ["Interpretability", "Sparse Autoencoders", "Causal Models"]
+      "keywords": [
+        "Interpretability",
+        "Sparse Autoencoders",
+        "Causal Models"
+      ]
     },
     {
       "name": "Theoretical ML",
-      "keywords": ["Representations", "Optimization", "Information Theory"]
+      "keywords": [
+        "Representations",
+        "Optimization",
+        "Information Theory"
+      ]
     }
   ],
-
   "references": []
 }

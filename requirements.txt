@@ -1,3 +1,5 @@
 nbconvert
+pillow
+pymupdf
 pyyaml
 scholarly

@@ -2,7 +2,7 @@
 layout: page
 permalink: /publications/
 title: publications
-description: publications by categories in reversed chronological order.
+description: kept in sync with my Google Scholar profile, in the same order.
 nav: true
 nav_order: 2
 ---

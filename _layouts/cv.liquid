@@ -24,6 +24,9 @@ layout: default
       {% if page.description %}
         <p class="post-description">{{ page.description }}</p>
       {% endif %}
+      {% if page.last_updated %}
+        <p class="post-description cv-last-updated">Last updated: {{ page.last_updated | date: "%B %-d, %Y" }}</p>
+      {% endif %}
     </header>
 
     <article>
@@ -74,6 +77,9 @@ layout: default
       </h1>
       {% if page.description %}
         <p class="post-description">{{ page.description }}</p>
+      {% endif %}
+      {% if page.last_updated %}
+        <p class="post-description cv-last-updated">Last updated: {{ page.last_updated | date: "%B %-d, %Y" }}</p>
       {% endif %}
     </header>
 

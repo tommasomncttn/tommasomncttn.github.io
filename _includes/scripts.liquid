@@ -163,6 +163,9 @@
   <script defer src="{{ '/assets/js/zoom.js' | relative_url | bust_file_cache }}"></script>
 {% endif %}
 
+<!-- Publication preview lightbox (medium-zoom stretches the fixed-box thumbnails) -->
+<script defer src="{{ '/assets/js/pub-lightbox.js' | relative_url | bust_file_cache }}"></script>
+
 {% if page.toc and page.toc.sidebar %}
   <!-- Sidebar Table of Contents -->
   <script defer src="{{ '/assets/js/bootstrap-toc.min.js' | relative_url | bust_file_cache }}"></script>

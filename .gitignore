@@ -12,3 +12,8 @@ node_modules/
 vendor
 .idea
 .venv
+_notion_draft/.notion.env
+.notion.env
+_scripts/__pycache__/
+_notion_draft/
+__pycache__/
