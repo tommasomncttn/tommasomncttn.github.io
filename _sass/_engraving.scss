@@ -35,7 +35,7 @@ body::before {
      chariot on the right). 64% vertical centers that band under cover
      cropping; 60% horizontal keeps the chariot in frame when narrow
      viewports crop the sides. */
-  background: url("../img/dore-moon.jpg") no-repeat 60% 64% / cover;
+  background: url("../img/dore-moon.webp") no-repeat 60% 64% / cover;
   opacity: var(--global-engraving-opacity);
   /* dark-only site: the moon glows out of the night sky */
   mix-blend-mode: screen;
@@ -609,72 +609,3 @@ table,
   color: var(--global-text-color);
 }
 
-/* ---------------------------------------------------------- artwork peek -- */
-/* The palette icon in the navbar: while it is hovered, the page lifts away so
-   the background plate can be viewed unobstructed. The plate blends with
-   `screen`, and screen over pure black is a no-op, so transitioning the html
-   canvas to black + the plate to full opacity shows the artwork verbatim
-   without a blend-mode snap. */
-
-.nav-artwork {
-  .nav-link {
-    cursor: pointer;
-    font-size: 1.25rem;
-  }
-
-  /* hover-only affordance; the collapsed mobile menu has no hover */
-  @media (max-width: 575.98px) {
-    display: none;
-  }
-}
-
-html {
-  transition: background-color 0.7s ease;
-}
-
-body::before,
-body::after {
-  transition: opacity 0.7s ease;
-}
-
-body > .container,
-footer,
-#progress,
-.navbar-brand,
-.navbar-nav > li:not(.nav-artwork) {
-  transition: opacity 0.7s ease;
-}
-
-.navbar {
-  transition:
-    background-color 0.7s ease,
-    border-bottom-color 0.7s ease;
-}
-
-html:has(.nav-artwork:hover) {
-  background-color: #000;
-
-  body::before {
-    opacity: 1;
-  }
-
-  body::after {
-    opacity: 0;
-  }
-
-  body > .container,
-  footer,
-  #progress,
-  .navbar-brand,
-  .navbar-nav > li:not(.nav-artwork) {
-    opacity: 0;
-    pointer-events: none;
-  }
-
-  .navbar {
-    background-color: transparent;
-    border-bottom-color: transparent;
-    backdrop-filter: none;
-    -webkit-backdrop-filter: none;
-  }
-}
