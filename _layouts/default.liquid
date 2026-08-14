@@ -13,6 +13,16 @@
       <meta http-equiv="refresh" content="3; url={{ redirect }}">
     {% endif %}
     {% include head.liquid %}
+    {% if page.background %}
+      <!-- Per-page background plate (front matter `background`, optional
+           `background_position`); the site-wide Doré engraving applies when unset. -->
+      <style type="text/css">
+        body::before {
+          background-image: url('{{ page.background | relative_url }}');
+          {% if page.background_position %}background-position: {{ page.background_position }};{% endif %}
+        }
+      </style>
+    {% endif %}
   </head>
 
   <!-- Body -->

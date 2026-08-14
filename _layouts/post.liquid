@@ -13,16 +13,6 @@ layout: default
   </style>
 {% endif %}
 
-{% if page.background %}
-  <!-- Custom background plate (set via the Notion "Background" property);
-       without it the site-wide Doré engraving applies. -->
-  <style type="text/css">
-    body::before {
-      background-image: url('{{ page.background | relative_url }}');
-    }
-  </style>
-{% endif %}
-
 <div class="post">
   <header class="post-header">
     <h1 class="post-title">{{ page.title }}</h1>
