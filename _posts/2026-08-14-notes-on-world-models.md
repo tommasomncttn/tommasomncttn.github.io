@@ -3,15 +3,15 @@ layout: post
 title: "Notes on World Models"
 date: 2026-08-14
 description: "Some notes I took at EPFL on world models from C. Bunne’s course. It is still WIP, some references (e.g., for images) are missing."
-tags: notes
+tags: tutorial ml
 categories: blog
 related_posts: false
 render_with_liquid: false
 toc:
   sidebar: left
-background: /assets/img/posts/notes-on-world-models/background.jpg
+background: /assets/img/posts/notes-on-world-models/background.webp
 notion_id: 3bc815d2-904b-803f-a25c-c546d465dc1d
-notion_last_edited: 2026-08-14T20:30:00.000Z
+notion_last_edited: 2026-08-15T12:59:00.000Z
 ---
 ## A. World Models (L12)
 
