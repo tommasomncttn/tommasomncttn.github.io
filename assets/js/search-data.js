@@ -30,7 +30,18 @@ ninja.data = [{
           handler: () => {
             window.location.href = "/cv/";
           },
-        },{id: "post-notes-on-world-models",
+        },{id: "post-first-dialogue-on-rlhf-with-a-bit-of-vae",
+        
+          title: "First Dialogue on RLHF (with a bit of VAE)",
+        
+        description: "Random walks in RLHF exposed via a dialogue format.",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2026/first-dialogue-on-rlhf-with-a-bit-of-vae/";
+          
+        },
+      },{id: "post-notes-on-world-models",
         
           title: "Notes on World Models",
         
@@ -39,6 +50,17 @@ ninja.data = [{
         handler: () => {
           
             window.location.href = "/blog/2026/notes-on-world-models/";
+          
+        },
+      },{id: "post-notes-on-vision-models",
+        
+          title: "Notes on Vision Models",
+        
+        description: "Some notes I took at EPFL on vision models from C. Bunne’s course. It is still WIP, some references (e.g., for images) are missing.",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2026/notes-on-vision-models/";
           
         },
       },{id: "post-notes-on-transformers",
