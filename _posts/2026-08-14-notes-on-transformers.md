@@ -2,7 +2,7 @@
 layout: post
 title: "Notes on Transformers"
 date: 2026-08-14
-description: "Some notes I took at EPFL on transformers"
+description: "Some notes I took at EPFL on transformers from C. Bunne’s course. It is still WIP, some references (e.g., for images) are missing."
 tags: notes
 categories: blog
 related_posts: false
@@ -11,7 +11,7 @@ toc:
   sidebar: left
 background: /assets/img/posts/notes-on-transformers/background.jpg
 notion_id: 3bc815d2-904b-80b4-a646-c6c38af23632
-notion_last_edited: 2026-08-14T19:57:00.000Z
+notion_last_edited: 2026-08-14T20:31:00.000Z
 ---
 ## 0. Prerequisite: A Mental Model for Vector and Matrix Algebra 
 
