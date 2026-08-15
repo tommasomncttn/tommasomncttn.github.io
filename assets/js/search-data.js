@@ -34,7 +34,7 @@ ninja.data = [{
         
           title: "Notes on World Models",
         
-        description: "Some notes I took at EPFL on world models",
+        description: "Some notes I took at EPFL on world models from C. Bunne’s course. It is still WIP, some references (e.g., for images) are missing.",
         section: "Posts",
         handler: () => {
           
@@ -45,7 +45,7 @@ ninja.data = [{
         
           title: "Notes on Transformers",
         
-        description: "Some notes I took at EPFL on transformers",
+        description: "Some notes I took at EPFL on transformers from C. Bunne’s course. It is still WIP, some references (e.g., for images) are missing.",
         section: "Posts",
         handler: () => {
           
@@ -56,7 +56,7 @@ ninja.data = [{
         
           title: "Notes on Diffusion Models",
         
-        description: "Some notes I took at EPFL on diffusion models",
+        description: "Some notes I took at EPFL on diffusion models from C. Bunne’s course. It is still WIP, some references (e.g., for images) are missing.",
         section: "Posts",
         handler: () => {
           
