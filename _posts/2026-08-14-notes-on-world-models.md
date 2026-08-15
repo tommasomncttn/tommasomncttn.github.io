@@ -23,7 +23,7 @@ In this paragraph we are going to introduce world models.
 
 NB, in world models **generation means simulating how the world evolves over time:**
 
-![notes-on-world-models](/assets/img/posts/notes-on-world-models/notion-3bc815d2.png)
+![notes-on-world-models](/assets/img/posts/notes-on-world-models/notion-3bc815d2904b8010ac9ac1d2358554a9.png)
 
 #### Mental Models
 
@@ -53,13 +53,13 @@ There are two main type of RL Algorithms:
 
 - **model-free RL** which are for example (_Q-Learning, SARSA, Reinforce_). They do not learn a transition matrix, therefore they do not learn $$P(S \vert a,s)$$. Instead they learn a _**quality function**_ that tells you how good is either a state ($$V(s)$$) or a state-action pair ($$Q(s,a)$$).For example the idea of Q-Learning is to act with the world and learn time by time this quality function. While we learn we sample whether to act at random or according to them
 
-![notes-on-world-models](/assets/img/posts/notes-on-world-models/notion-3bc815d2.png)
+![notes-on-world-models](/assets/img/posts/notes-on-world-models/notion-3bc815d2904b802c8f55d84952af7ab4.png)
 
 > _**I don’t know the rules of the game. I just remember which moves worked. So i need to try and learn**_
 
 - **model-based RL,** for example → DP, Value Iteration, Policy Iteration. You learn a _**model of the environment**_ $$P(S \vert a,s)$$. In Value Iteration for example you use that probability model $$P(S \vert s,a)$$ to pick the action that maximize the expected reward based on an optimal value function $$V^*$$:
 
-![notes-on-world-models](/assets/img/posts/notes-on-world-models/notion-3bc815d2.png)
+![notes-on-world-models](/assets/img/posts/notes-on-world-models/notion-3bc815d2904b8084a738e1ce79d8733d.png)
 
 > _**I learned the rule of the game before, so I can think instead of trying. I can play instead of learn**_
 
@@ -109,7 +109,7 @@ Schmidhuber propose to organize AI Agents into three fundamental modules:
 - **Memory (M)** it take as input previous memory and current compressed (by V) sensorial information and update the current memory
 - **Controller (C)** it decide which action to take based on current compressed sense (V) and memory info (M) 
 
-![notes-on-world-models](/assets/img/posts/notes-on-world-models/notion-3bc815d2.png)
+![notes-on-world-models](/assets/img/posts/notes-on-world-models/notion-3bc815d2904b80828f73c61d734fbfaf.png)
 
 
 
@@ -226,7 +226,7 @@ def run_rollout(controller, env):
 
 The V module is a straightforward VAE model. 
 
-![notes-on-world-models](/assets/img/posts/notes-on-world-models/notion-3bc815d2.png)
+![notes-on-world-models](/assets/img/posts/notes-on-world-models/notion-3bc815d2904b80f0a9ebd88225841d2d.png)
 
 It learn to minimize a reconstruction term (e.g., the likelihood that the decoder generate the input data) and it uses a regularizer to force normality (required to sample from z afterwards, and to force the encoder q to actually learn a distribution rather than memorizing)
 
@@ -298,7 +298,7 @@ def vae_loss(recon_x, x, mu, logvar):
 
 The memory module is trained via attaching a MDN (_mixed density network with_ _**5 gaussians**_) instead of final linear layer to the output of the RNN
 
-![notes-on-world-models](/assets/img/posts/notes-on-world-models/notion-3bc815d2.png)
+![notes-on-world-models](/assets/img/posts/notes-on-world-models/notion-3bc815d2904b80e98bf2dfdadc1d7ab2.png)
 
 This trick allows us to treat the RNN output as parametrization for a gaussian, and rather than having 1 predicted $$\hat z_{i+1}$$ we will have a distribution where to sample many, which _is what we want from our generative world models. Therefore we train by minimizing the following function_
 
@@ -365,7 +365,7 @@ def mdn_loss(pi, mu, sigma, next_z):
 
 The idea:
 
-![notes-on-world-models](/assets/img/posts/notes-on-world-models/notion-3bc815d2.png)
+![notes-on-world-models](/assets/img/posts/notes-on-world-models/notion-3bc815d2904b8030bb20f0a60a55d097.png)
 
 <details class="notion-toggle" markdown="1">
 <summary markdown="span">`The code` </summary>
@@ -399,7 +399,7 @@ class Controller(nn.Module):
 
 In a world model ideally the environment is characterized by two quantities: 
 
-![notes-on-world-models](/assets/img/posts/notes-on-world-models/notion-3bc815d2.png)
+![notes-on-world-models](/assets/img/posts/notes-on-world-models/notion-3bc815d2904b805f9b3ddda239605723.png)
 
 $$T$$ maps _state of the environment s_ and _action_ of the controller to new state of the environment. Instead, $$O$$ maps state of the environment to observation of the agent. 
 
@@ -424,7 +424,7 @@ These are the 4 main types of world models and their most popular exmaples:
 </div>
 <div class="notion-column" style="flex: 50 1 0%" markdown="1">
 
-![notes-on-world-models](/assets/img/posts/notes-on-world-models/notion-3bc815d2.png)
+![notes-on-world-models](/assets/img/posts/notes-on-world-models/notion-3bc815d2904b802cbabedaa6838dc2d9.png)
 
 </div>
 </div>
@@ -439,9 +439,9 @@ These are the 4 main types of world models and their most popular exmaples:
 
 **CORE IDEA** Agent′s world model maps from latent observation to latent future observatios. Therefore, it never generate in the same domain of the ambient of the agent (e.g., pixel), but state of this world model are latent vectors of a deep learning aarchitecture. It is called **latent dynamic function:**
 
-![notes-on-world-models](/assets/img/posts/notes-on-world-models/notion-3bc815d2.png)
+![notes-on-world-models](/assets/img/posts/notes-on-world-models/notion-3bc815d2904b8016958fc80be4a0526a.png)
 
-![notes-on-world-models](/assets/img/posts/notes-on-world-models/notion-3bc815d2.png)
+![notes-on-world-models](/assets/img/posts/notes-on-world-models/notion-3bc815d2904b80ff8cb4f808eeaf7bd6.png)
 
 - The decoder is useful only for training, and it is never used to actually reconstruct state into the original one (if not for paper viz)
 - Therefore, _**agent does not reconstruct latent states in observation during planning**_. 
@@ -458,7 +458,7 @@ These are the 4 main types of world models and their most popular exmaples:
 
 > _**Use learned latent dynamic for planning (pick best action) at decision time**_
 
-![notes-on-world-models](/assets/img/posts/notes-on-world-models/notion-3bc815d2.png)
+![notes-on-world-models](/assets/img/posts/notes-on-world-models/notion-3bc815d2904b80a098dffa49639a931f.png)
 
 **ARCHITECTURE** MuZero learns three functions: 
 
@@ -476,13 +476,13 @@ These are the 4 main types of world models and their most popular exmaples:
 
 
 
-![notes-on-world-models](/assets/img/posts/notes-on-world-models/notion-3bc815d2.png)
+![notes-on-world-models](/assets/img/posts/notes-on-world-models/notion-3bc815d2904b80309f3bd7c92d29e743.png)
 
 (_in the image: the encoder is what we train and it has a deterministic hidden output h and a stochastic z. The stochastic is reconstructed into x by the decoder to train the encoder via MSE)_
 
 **ARCHITECTURE** The world model in Dreamer is implemented as a _**recurrent state-space model**_ that combines deterministic and stochastic components. The **d**_**eterministic hidden state captures**_ information that is predictable from past experience, while the _**stochastic latent variables**_ model uncertainty and variability in the environment.
 
-![notes-on-world-models](/assets/img/posts/notes-on-world-models/notion-3bc815d2.png)
+![notes-on-world-models](/assets/img/posts/notes-on-world-models/notion-3bc815d2904b80ec89d5dab061352be9.png)
 
 **TRAINING** Observations are encoded into latent variables during training, and the recurrent dynamics model predicts how these latents evolve given actions. 
 
@@ -502,7 +502,7 @@ I-Jepa is a _**joint embedding predictive architecture**_. Such architecture lea
 
 > _**INTUITION: JEPA  predicts abstract representations rather than raw high-dimensional inputs, avoiding modeling irrelevant details**_
 
-![notes-on-world-models](/assets/img/posts/notes-on-world-models/notion-3bc815d2.png)
+![notes-on-world-models](/assets/img/posts/notes-on-world-models/notion-3bc815d2904b80fe9aa5e2b068600dbb.png)
 
 <div class="notion-callout notion-callout--red" markdown="1">
 <div class="notion-callout-icon">🚨</div>
@@ -520,7 +520,7 @@ There are a lot of details here:
 
 > _**INNOVATION: JEPA take student-teacher comparison from contrastive methods and masking from MAEs. It leaves augmentation of contrastive methods and reconstruction via decoder of MAEs**_
 
-![notes-on-world-models](/assets/img/posts/notes-on-world-models/notion-3bc815d2.png)
+![notes-on-world-models](/assets/img/posts/notes-on-world-models/notion-3bc815d2904b80d0b587dd0648b009c1.png)
 
 #### I-JEPA Tokenization
 
@@ -533,7 +533,7 @@ There are a lot of details here:
     - each context mask of the M is used to predict each target mask
     - we explicitely never pick patches (masks) already present in the target to avoid dumb tasks
 
-![notes-on-world-models](/assets/img/posts/notes-on-world-models/notion-3bc815d2.png)
+![notes-on-world-models](/assets/img/posts/notes-on-world-models/notion-3bc815d2904b80f0926ecd2da09f1100.png)
 
 #### I-JEPA Forward Pass 
 
@@ -551,13 +551,13 @@ The forward pass follow this logic:
     - _now we are in the joint embedding shared between the predictor and_ 
 - compute target patches via target encoder
 - compute loss
-![notes-on-world-models](/assets/img/posts/notes-on-world-models/notion-3bc815d2.png)
+![notes-on-world-models](/assets/img/posts/notes-on-world-models/notion-3bc815d2904b8085813df1635e088085.png)
 
 #### I-JEPA Training 
 
 Differently from what is shown above the loss used by I-JEPA is `smooth-l1` rather than `l2` loss.
 
-![notes-on-world-models](/assets/img/posts/notes-on-world-models/notion-3bc815d2.png)
+![notes-on-world-models](/assets/img/posts/notes-on-world-models/notion-3bc815d2904b808d90eace1ae102c507.png)
 
 The context_decoder is clearly not trained by updated via an EMA of the context encoder:
 
@@ -854,7 +854,7 @@ While the masking strategy becomes 3D, the authors also make changes on how the 
 
 **APPLICATION 1: V-JEPA-2 with Action Conditioning (V-JEPA-2-AC)** V-JEPA-2-AC extends V-JEPA-2 by introducing **actions** into the prediction process, turning it into a latent dynamics model suitable for robotics. _**In this variant, the predictor is conditioned not only on the current visual embedding but also on robot actions and poses.**_ **The target remains the embedding of a future video frame.**
 
-![notes-on-world-models](/assets/img/posts/notes-on-world-models/notion-3bc815d2.png)
+![notes-on-world-models](/assets/img/posts/notes-on-world-models/notion-3bc815d2904b80aabfeacd0974df97f4.png)
 
 
 
@@ -875,7 +875,7 @@ An **explicit world model** is able to **reconstruct or predict future observati
 
 > _**The agent can “imagine” future frames of the world, not just abstract symbols. Thinking by actually rendering the future, not just reasoning abstractly about it**_
 
-![notes-on-world-models](/assets/img/posts/notes-on-world-models/notion-3bc815d2.png)
+![notes-on-world-models](/assets/img/posts/notes-on-world-models/notion-3bc815d2904b801a90cee6ea5e451a42.png)
 
 **ARCHITECTURE** Formally, the environment is modeled through two components. A **dynamics model** predicts how the internal state of the world evolves given the current state and an action, while an **observation model** maps that predicted state back to an observable quantity. 
 
@@ -887,7 +887,7 @@ An **explicit world model** is able to **reconstruct or predict future observati
 - A learned dynamics model **(DINO-WM)** then predicts how these representations evolve under actions
 - a decoder reconstructs future observations from the predicted representations
 
-![notes-on-world-models](/assets/img/posts/notes-on-world-models/notion-3bc815d2.png)
+![notes-on-world-models](/assets/img/posts/notes-on-world-models/notion-3bc815d2904b80198ce6f74a8f8b5501.png)
 
 At test time, the model can roll forward from an initial observation under different action sequences and generate corresponding future visual trajectories. Because the predicted observations are explicit images, the agent can compare alternative futures visually or use them as input to downstream evaluation modules.
 
@@ -895,11 +895,11 @@ At test time, the model can roll forward from an initial observation under diffe
 
 **CORE IDEA** Diffusion world models extend explicit world modeling by using **conditional diffusion processes** to generate future observations. Rather than predicting a single deterministic outcome, these models learn a generative distribution over possible future trajectories conditioned on past observations and actions.
 
-![notes-on-world-models](/assets/img/posts/notes-on-world-models/notion-3bc815d2.png)
+![notes-on-world-models](/assets/img/posts/notes-on-world-models/notion-3bc815d2904b80a99f4bf0106a61305a.png)
 
 **ARCHITECTURE** In practice, a diffusion world model is trained to denoise future observations given a history of observations and a sequence of actions. Generation starts from noise and iteratively refines the sample until a plausible future observation, or even a full future trajectory, is produced. 
 
-![notes-on-world-models](/assets/img/posts/notes-on-world-models/notion-3bc815d2.png)
+![notes-on-world-models](/assets/img/posts/notes-on-world-models/notion-3bc815d2904b8034afb3f7a88d7ba2e0.png)
 
 _Because the model represents a distribution rather than a point estimate, multiple diverse futures can be sampled from the same initial state._
 
@@ -916,12 +916,12 @@ _Because the model represents a distribution rather than a point estimate, multi
 <div class="notion-columns" markdown="1">
 <div class="notion-column" style="flex: 50 1 0%" markdown="1">
 
-![notes-on-world-models](/assets/img/posts/notes-on-world-models/notion-3bc815d2.png)
+![notes-on-world-models](/assets/img/posts/notes-on-world-models/notion-3bc815d2904b80a5820dd7e57ddf301e.png)
 
 </div>
 <div class="notion-column" style="flex: 50 1 0%" markdown="1">
 
-![notes-on-world-models](/assets/img/posts/notes-on-world-models/notion-3bc815d2.png)
+![notes-on-world-models](/assets/img/posts/notes-on-world-models/notion-3bc815d2904b805da23be5eb503020cc.png)
 
 
 
@@ -936,7 +936,7 @@ In this setting, the agent does not approximate the transition function $$T$$ (t
 
 SAPien (Simulated Part-based Interactive Environment) is an open-source, physics-rich simulation platform designed specifically for robotics and embodied AI research
 
-![notes-on-world-models](/assets/img/posts/notes-on-world-models/notion-3bc815d2.png)
+![notes-on-world-models](/assets/img/posts/notes-on-world-models/notion-3bc815d2904b80828675dde3c0908b4f.png)
 
 > _**Learning happens on top of physics, not instead of it.**_
 
@@ -950,7 +950,7 @@ In practice, SAPien functions as a complete world model: given a state and an ac
 
 **CORE IDEA** Instruction-driven/hybrid world models are models that can be updated, constrained, or corrected via instructions, manuals, or on-the-fly rule discovery.
 
-![notes-on-world-models](/assets/img/posts/notes-on-world-models/notion-3bc815d2.png)
+![notes-on-world-models](/assets/img/posts/notes-on-world-models/notion-3bc815d2904b80309a3afd145f1a9a4e.png)
 
 - A partial implicit or explicit model handles latent dynamics and perception, so state transition. But before completing the state transition it calls an external component
 - an external reasoning component is typically an LLM or a structured rule base that is either updated and applied or prompted → _**it proposes constraints or checks consistency**_
@@ -982,7 +982,7 @@ _**Multimodality is handled outside the core model, with all inputs eventually m
 </div>
 </div>
 
-![notes-on-world-models](/assets/img/posts/notes-on-world-models/notion-3bc815d2.png)
+![notes-on-world-models](/assets/img/posts/notes-on-world-models/notion-3bc815d2904b804c91cbca5ab0b2c12e.png)
 
 **GENIE 2** Genie 2 advances this idea by using an autoregressive **latent diffusion world model**. Frames are encoded into a latent space and passed through a large Transformer dynamics model with causal masking.  (_**classifier guidance allow to steer via text the generation of diffusion models**_)
 
@@ -995,15 +995,15 @@ _**same input(action) + state → GENIE → next state**_ but now the state is l
 </div>
 </div>
 
-![notes-on-world-models](/assets/img/posts/notes-on-world-models/notion-3bc815d2.png)
+![notes-on-world-models](/assets/img/posts/notes-on-world-models/notion-3bc815d2904b80968a87fc4edf50b124.png)
 
 **GENIE 3** Genie 3 further shifts toward real-time interaction. It is a _**frame-by-frame**_ autoregressive world model that a_**ttends to the full prior trajectory and maintains visual memory**_. Genie 3 accepts direct text prompts and promptable world events, enabling richer instruction-driven control. While architectural details are not fully disclosed, it is explicitly optimized for interactive frame rates and persistent world state.
 
-![notes-on-world-models](/assets/img/posts/notes-on-world-models/notion-3bc815d2.png)
+![notes-on-world-models](/assets/img/posts/notes-on-world-models/notion-3bc815d2904b80d4b347df5b7de1bbf1.png)
 
 **MULTIMODALITY COMPARISON** In genie 1 everything is handled before the autoregressive world model. All text, image, and actions mapped to the same space on which world model is trained. In last one, Genie 3, instead everyhing is blended together natevily, there is not an embedder, which often times can be an information bottleneck
 
-![notes-on-world-models](/assets/img/posts/notes-on-world-models/notion-3bc815d2.png)
+![notes-on-world-models](/assets/img/posts/notes-on-world-models/notion-3bc815d2904b80bd85a3fff9c58acd50.png)
 
 #### Cosmos Models for Physical AI 
 
@@ -1017,7 +1017,7 @@ Within the Cosmos framework, different model families target different aspects o
 - _**Cosmos Transfer**_ provides multimodal simulation-to-simulation or simulation-to-real transfer, allowing policies and representations to generalize across environments. 
 - _**Cosmos Reason**_ integrates vision-language reasoning to support higher-level understanding, commonsense reasoning, and decision-making in physical worlds.
 
-![notes-on-world-models](/assets/img/posts/notes-on-world-models/notion-3bc815d2.png)
+![notes-on-world-models](/assets/img/posts/notes-on-world-models/notion-3bc815d2904b807e9219e37bf0377a68.png)
 
 These models illustrate how instruction-driven world models can scale from research prototypes to production-grade systems, combining perception, dynamics, reasoning, and instruction-following into unified foundations for physical intelligence.
 

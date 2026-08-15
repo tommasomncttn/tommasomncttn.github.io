@@ -29,7 +29,7 @@ notion_last_edited: 2026-08-15T13:00:00.000Z
 
 The MAE pre-training process, as illustrated in the architectural overview, is notable for its efficiency and elegant design. The procedure unfolds in several key steps:
 
-![notes-on-vision-models](/assets/img/posts/notes-on-vision-models/notion-3bc815d2.png)
+![notes-on-vision-models](/assets/img/posts/notes-on-vision-models/notion-3bc815d2904b80ff9d6fdddd00bdd536.png)
 
 1. **Patching and Masking:** An input image is first divided into a grid of non-overlapping patches. A large, random subset of these patches (e.g., 75%) is then masked, making them invisible to the encoder.
 1. **Encoding Visible Patches:** The MAE encoder, a standard Vision Transformer, processes _only the small subset of visible patches_. This is a critical design choice for efficiency.
@@ -65,11 +65,11 @@ The MAE pre-training process, as illustrated in the architectural overview, is n
 
 -  **jigsaw** puzzles → predict the right position of the patch
 
-![notes-on-vision-models](/assets/img/posts/notes-on-vision-models/notion-3bc815d2.png)
+![notes-on-vision-models](/assets/img/posts/notes-on-vision-models/notion-3bc815d2904b8055bef7c752787b4852.png)
 
 -  **in-coloring** →  (predicting color from a grayscale image)
 
-![notes-on-vision-models](/assets/img/posts/notes-on-vision-models/notion-3bc815d2.png)
+![notes-on-vision-models](/assets/img/posts/notes-on-vision-models/notion-3bc815d2904b808094f4c6b05c082b7a.png)
 
 
 
@@ -82,7 +82,7 @@ The MAE pre-training process, as illustrated in the architectural overview, is n
 
 **MAE MASKING TYPES** we say that MAE reconstruct mask but how should we mask? These are three possible type coherent with masking
 
-![notes-on-vision-models](/assets/img/posts/notes-on-vision-models/notion-3bc815d2.png)
+![notes-on-vision-models](/assets/img/posts/notes-on-vision-models/notion-3bc815d2904b807e9d72ef56983fbf62.png)
 
 - **Random Masking:** This strategy proved _**to be the most effective**_. 
     - By removing patches without any discernible spatial structure →  prevents the model from "cheating" by exploiting _**local continuity or predictable patterns**_. 
@@ -185,7 +185,7 @@ Having explored the reconstruction-based approach of MAE, we now transition to i
 
 **ARCHITECTURE** The iBOT architecture is built around a student-teacher framework.
 
-![notes-on-vision-models](/assets/img/posts/notes-on-vision-models/notion-3bc815d2.png)
+![notes-on-vision-models](/assets/img/posts/notes-on-vision-models/notion-3bc815d2904b8009a35bef9f8c23350e.png)
 
 - **Student and Teacher Networks:** The model consists of a **student network (**`fs`) that learns via gradient descent and a **teacher network (**`ft`) whose weights are an exponential moving average (EMA) of the student's weights. The teacher provides stable, slowly evolving prediction targets.
     - the name **online tokenizer stands for teacher network**
@@ -203,7 +203,7 @@ Having explored the reconstruction-based approach of MAE, we now transition to i
 
 The output are not actually patches as show in the picture. Instead, we assume that there are N classes or prototype vectors (we can assume we are predicting these prototype vector, e.g. a VQ-VAE quantization) and we get from the heads $$h_s$$ a probability distribution. Then we _**can the cross-entropy:**_ 
 
-![notes-on-vision-models](/assets/img/posts/notes-on-vision-models/notion-3bc815d2.png)
+![notes-on-vision-models](/assets/img/posts/notes-on-vision-models/notion-3bc815d2904b806b9b64fcd392758fa8.png)
 
 </div>
 </div>
@@ -339,7 +339,7 @@ student:   encoder → projector → predictor → prediction
 target:    encoder → projector → representation
 ```
 
-![notes-on-vision-models](/assets/img/posts/notes-on-vision-models/notion-3bc815d2.png)
+![notes-on-vision-models](/assets/img/posts/notes-on-vision-models/notion-3bc815d2904b801f98c3f5cfaa5f78ec.png)
 
 **BYOL LOSS** as seen above is simply the the cosine between normal image from _student predictor_ and augmented image from EMA
 
@@ -351,13 +351,13 @@ target:    encoder → projector → representation
 <summary markdown="span">**SOLUTION** the solution relies on two key ingredients: _**EMA**_ and **PREDICTION HEAD** make more constant output a non-stable solution </summary>
 
 - without prediction head constant output are stable optima 
-    ![notes-on-vision-models](/assets/img/posts/notes-on-vision-models/notion-3bc815d2.png)
+    ![notes-on-vision-models](/assets/img/posts/notes-on-vision-models/notion-3bc815d2904b809c95aed96514455484.png)
 
 - with ema is not enough 
-    ![notes-on-vision-models](/assets/img/posts/notes-on-vision-models/notion-3bc815d2.png)
+    ![notes-on-vision-models](/assets/img/posts/notes-on-vision-models/notion-3bc815d2904b80bcb4e4e307f4accf15.png)
 
 - but with ema + prediction constant is not anymore a stable solution
-    ![notes-on-vision-models](/assets/img/posts/notes-on-vision-models/notion-3bc815d2.png)
+    ![notes-on-vision-models](/assets/img/posts/notes-on-vision-models/notion-3bc815d2904b800b9d6edae171c8473d.png)
 
 </details>
 
@@ -390,7 +390,7 @@ target:    encoder → projector → representation
 
     - Now the **architecture** is image encoder (VIT) + MLP (projector)
 
-    ![notes-on-vision-models](/assets/img/posts/notes-on-vision-models/notion-3bc815d2.png)
+    ![notes-on-vision-models](/assets/img/posts/notes-on-vision-models/notion-3bc815d2904b807cb074c64e4d1e428c.png)
 
 - _DIFFERENT LOSS_ DINO uses cross-entropy to align the student and teacher output distribution instead of mean squared error or cosine similarity
 - _DIFFERENT INPUT HANDLING_ DINO follows a new **multi-crop strategy**: first, it generates two large crops (**global**, covering >50% of the image) and several smaller ones (**local**, <50%) from the same image. 
@@ -443,7 +443,7 @@ While we introduce iBOT before DINO, it is its follow up. **DINO** adapted this 
 - **filter near-duplicate images** with a copy detection pipeline
 - retrieve similar image (so high quality) from bigger dataset with selecting the k-nearest neigh (k=4)
 
-![notes-on-vision-models](/assets/img/posts/notes-on-vision-models/notion-3bc815d2.png)
+![notes-on-vision-models](/assets/img/posts/notes-on-vision-models/notion-3bc815d2904b8056b5a9c164dc5bf36e.png)
 
 
 
@@ -460,23 +460,23 @@ While we introduce iBOT before DINO, it is its follow up. **DINO** adapted this 
 
 **LOSS** This is the final loss that is been optimized
 
-![notes-on-vision-models](/assets/img/posts/notes-on-vision-models/notion-3bc815d2.png)
+![notes-on-vision-models](/assets/img/posts/notes-on-vision-models/notion-3bc815d2904b8038a97fd203e1413382.png)
 
 **KNOWLEDGE DISTILLATION** Rather than training different version from scratch, train firstly the biggest and use it as teacher:
 
-![notes-on-vision-models](/assets/img/posts/notes-on-vision-models/notion-3bc815d2.png)
+![notes-on-vision-models](/assets/img/posts/notes-on-vision-models/notion-3bc815d2904b80c3ae6ddbb3f87f4907.png)
 
 **VISION REGISTERY** this are some tokens add to the input to capture global info on top of the CLS
 
-![notes-on-vision-models](/assets/img/posts/notes-on-vision-models/notion-3bc815d2.png)
+![notes-on-vision-models](/assets/img/posts/notes-on-vision-models/notion-3bc815d2904b804382e5ea5f0042bd7f.png)
 
 Indeed, once we train too much we still improve accuracy on sparse info task as classification on imagenet. But our performance decreases dramatically on dense task such as segmentation. This is because some patches hidden representation becomes very high-norm as full of information. This normally are useless background patches that transformer smartly use as blank spaces where to write global informations to carry complex reasoning
 
-![notes-on-vision-models](/assets/img/posts/notes-on-vision-models/notion-3bc815d2.png)
+![notes-on-vision-models](/assets/img/posts/notes-on-vision-models/notion-3bc815d2904b801d893bf6d076f24a01.png)
 
 #### 4.3 DINOV2 Experiments
 
-![notes-on-vision-models](/assets/img/posts/notes-on-vision-models/notion-3bc815d2.png)
+![notes-on-vision-models](/assets/img/posts/notes-on-vision-models/notion-3bc815d2904b80c3b37af0723309284d.png)
 
 **LOSSES COMPARISON:**
 

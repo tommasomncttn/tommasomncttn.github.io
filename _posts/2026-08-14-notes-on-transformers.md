@@ -21,7 +21,7 @@ notion_last_edited: 2026-08-15T13:00:00.000Z
 
 $$u^Tv$$ the vector dot product $$u^Tv = <u,v>$$ is a linear combination of the entry of $$v$$ via the entry of $$u$$ as weights. _It is just an_ _**unscaled similarity mechanism**_ _between two vector from the same vector space_
 
-![notes-on-transformers](/assets/img/posts/notes-on-transformers/notion-3bc815d2.png)
+![notes-on-transformers](/assets/img/posts/notes-on-transformers/notion-3bc815d2904b8064b794e73a7a85371b.png)
 
 #### 0.2 Matrix Left Vector Multiplication $$Av$$
 
@@ -80,7 +80,7 @@ Assume you want a function to generate MNIST-like images of digits. A simple opt
 
 The process of turning images into patches means getting a big image into a sequence of small images
 
-![notes-on-transformers](/assets/img/posts/notes-on-transformers/notion-3bc815d2.png)
+![notes-on-transformers](/assets/img/posts/notes-on-transformers/notion-3bc815d2904b80fa9f4ccf3c119acc36.png)
 
 The important thing to notice is that _a patch is still an image_. Nevertheless, transformer are trained to predict a single token-id belonging to a vocabulary not a grid of pixels
 
@@ -136,7 +136,7 @@ $$
 
 Where $$t$$ is the number of tokens and $$d $$ is the hidden dimension. Therefore, each row is an vector representation of a token.
 
-![notes-on-transformers](/assets/img/posts/notes-on-transformers/notion-3bc815d2.png)
+![notes-on-transformers](/assets/img/posts/notes-on-transformers/notion-3bc815d2904b80c09dc8c8a0942a54df.png)
 
 **POST-LAYER-NORM ARCHITECTURE** Information is _**written normalised**_ on the residual stream. Pass:  
 
@@ -257,7 +257,7 @@ $$
 
 Visually they compare like this:
 
-![notes-on-transformers](/assets/img/posts/notes-on-transformers/notion-3bc815d2.png)
+![notes-on-transformers](/assets/img/posts/notes-on-transformers/notion-3bc815d2904b80e18658e121c2c307a4.png)
 
 Code-wise just init two parameter for bias and scaling and then compute the unbiased var and the mean
 
@@ -707,7 +707,7 @@ on (j − i). So, if two tokens differ for 5 positions, the model will not have 
     <details class="notion-toggle" markdown="1">
     <summary markdown="span">more details</summary>
 
-    ![notes-on-transformers](/assets/img/posts/notes-on-transformers/notion-10b815d2.png)
+    ![notes-on-transformers](/assets/img/posts/notes-on-transformers/notion-10b815d2904b83d6975a81fd2da7e9df.png)
 
     </details>
 
@@ -715,9 +715,9 @@ on (j − i). So, if two tokens differ for 5 positions, the model will not have 
     <details class="notion-toggle" markdown="1">
     <summary markdown="span">more details</summary>
 
-    ![notes-on-transformers](/assets/img/posts/notes-on-transformers/notion-56b815d2.png)
+    ![notes-on-transformers](/assets/img/posts/notes-on-transformers/notion-56b815d2904b83f9980c01ae6cde570e.png)
 
-    ![notes-on-transformers](/assets/img/posts/notes-on-transformers/notion-f48815d2.png)
+    ![notes-on-transformers](/assets/img/posts/notes-on-transformers/notion-f48815d2904b83f0b97501fa5b81f07f.png)
 
     </details>
 
@@ -989,7 +989,7 @@ We now look at whether the GPU has enough DRAM (e.g., 80GB on an A100) to hold t
 
     For a 7B model ($$L=32, d=4096$$) on an A100 M=80GB GPU:
     If the sequence length is 4096, the memory is so full that the maximum batch size is only $$\approx$$ 40. 
-        ![notes-on-transformers](/assets/img/posts/notes-on-transformers/notion-d9c815d2.png)
+        ![notes-on-transformers](/assets/img/posts/notes-on-transformers/notion-d9c815d2904b83c592db01e1eacb27bb.png)
 
     - In practice, because model weights also take space (7B weights in bf16 ≈ 14 GiB), it is closer to 28-32
     Note: Still to use the cached K and V we still have to load them to fast memory which slows down the decoding more

@@ -17,13 +17,13 @@ notion_last_edited: 2026-08-15T13:00:00.000Z
 
 Diffusion models consist of two process. A fixed forward process where you add _**gaussian**_ noise to input image, a learned reverse process where you remove noise.
 
-![notes-on-diffusion-models](/assets/img/posts/notes-on-diffusion-models/notion-3bc815d2.png)
+![notes-on-diffusion-models](/assets/img/posts/notes-on-diffusion-models/notion-3bc815d2904b80b79bc4ceeb57395ad4.png)
 
 ### 1. The Forward Process: Mathematical Definition
 
 The forward process is a fixed Markov chain that adds Gaussian noise according to a pre-defined variance schedule $$β_t$$
 
-![notes-on-diffusion-models](/assets/img/posts/notes-on-diffusion-models/notion-3bc815d2.png)
+![notes-on-diffusion-models](/assets/img/posts/notes-on-diffusion-models/notion-3bc815d2904b8073abd7c6d54e672d5e.png)
 
 **SINGLE STEP TRANSITION** The transition from one timestep to the next is defined as a Gaussian distribution where the mean is a scaled version of the previous state $$x_{t-1}$$ and the variance is fixed by the schedule $$\beta_t$$ s.t. $$ t \to T  $$ then $$\beta_t : 0 \to 1$$
 
@@ -39,7 +39,7 @@ $$
 
 **CLOSED FORM t-STEP MARGINAL** A key result is that $$x_t \vert x_0$$ has a closed gaussian form. This means we can sample $$x_1,...,x_T$$ in parallel and is super-useful to speed up training 
 
-![notes-on-diffusion-models](/assets/img/posts/notes-on-diffusion-models/notion-3bc815d2.png)
+![notes-on-diffusion-models](/assets/img/posts/notes-on-diffusion-models/notion-3bc815d2904b8001bbede2a9b8f7951c.png)
 
 In practice we sample from it via the **reparametrization trick** that makes us write:
 
@@ -69,7 +69,7 @@ Now by linearity of gaussian we know that the all the $$x_t \vert x_0$$ will be 
 <details class="notion-toggle" markdown="1">
 <summary markdown="span">**solution**</summary>
 
-![notes-on-diffusion-models](/assets/img/posts/notes-on-diffusion-models/notion-3bc815d2.png)
+![notes-on-diffusion-models](/assets/img/posts/notes-on-diffusion-models/notion-3bc815d2904b803fb89ae37f36618914.png)
 
 </details>
 
@@ -77,7 +77,7 @@ Now by linearity of gaussian we know that the all the $$x_t \vert x_0$$ will be 
 
 - the forward marginal $$q(x_t \vert x_0)$$
 - the _**forward posterior**_ $$q(x_{t-1} \vert x_t, x_0)$$ → 
-    ![notes-on-diffusion-models](/assets/img/posts/notes-on-diffusion-models/notion-3bc815d2.png)
+    ![notes-on-diffusion-models](/assets/img/posts/notes-on-diffusion-models/notion-3bc815d2904b8039b814dacd2fa8babf.png)
 
 
 If another noise distribution like **Laplace** or uniform were used, these elegant closed forms would not exist, _**making the training objective (the ELBO terms) and the sampling updates intractable.**_
@@ -92,7 +92,7 @@ $$
 
 **WHY LEARN ? INTRACTABILITY OF REVERSE** The main problem of denoising is that $$x_{t-1} \sim q(x_{t-1}  \vert  x_t)$$ is intractable. So we cannot compute it simply as in the forward process and we need to learn 
 
-![notes-on-diffusion-models](/assets/img/posts/notes-on-diffusion-models/notion-3bc815d2.png)
+![notes-on-diffusion-models](/assets/img/posts/notes-on-diffusion-models/notion-3bc815d2904b8002a2f8ddf2412ecd9f.png)
 
 **LEARNING PROBLEM** The goal of training in the reverse process is to learn a neural network $$p_θ$$ that can approximate the true reverse denoising distribution. So we could try to maximize the likelihood of real data $$x_0$$ under our parametrization $$p_{\theta}$$ but we cannot compute such distribution! but we can do ELBO!
 
@@ -104,12 +104,12 @@ $$
 
  This can be written more compactly as $$≤ L_T + Σ_{t=2}^T L_{t-1} + L_0$$. Minimizing this loss is equivalent to making the learned reverse distribution `pθ` match the true (but intractable) reverse distribution `q`. Each of these terms has a meaning:
 
-![notes-on-diffusion-models](/assets/img/posts/notes-on-diffusion-models/notion-3bc815d2.png)
+![notes-on-diffusion-models](/assets/img/posts/notes-on-diffusion-models/notion-3bc815d2904b80afb7f1df7e2c761d51.png)
 
 
 **THE LOSS TERMS** $$ L_{t-1}$$ The core of the training involves minimizing the $$L_{t-1}$$ term. I_**f we assume the learned reverse process**_ $$p_θ$$ _**is also Gaussian with a learned mean**_ $$µ_θ(x_t, x_0)$$ and a fixed variance $$σ²_t*I$$
 
-![notes-on-diffusion-models](/assets/img/posts/notes-on-diffusion-models/notion-3bc815d2.png)
+![notes-on-diffusion-models](/assets/img/posts/notes-on-diffusion-models/notion-3bc815d2904b80adaf7bf7ed719e823b.png)
 
 then the KL divergence simplifies significantly. It becomes an MSE term between **the predicted reverse mean** µ_θ and the **true forward posterior mean** $$µ̃_t$$, plus constants that do not depend on  µ_θ:
 
@@ -131,24 +131,24 @@ $$
 
 Now remember that the forward posterior mean is:
 
-![notes-on-diffusion-models](/assets/img/posts/notes-on-diffusion-models/notion-3bc815d2.png)
+![notes-on-diffusion-models](/assets/img/posts/notes-on-diffusion-models/notion-3bc815d2904b80ba8294f048ab4b112b.png)
 
 So by using both we arrive to:
 
-![notes-on-diffusion-models](/assets/img/posts/notes-on-diffusion-models/notion-3bc815d2.png)
+![notes-on-diffusion-models](/assets/img/posts/notes-on-diffusion-models/notion-3bc815d2904b801287fcdfa1c0e5bcad.png)
 
 If now we choose our parametrization for $$\mu_{\theta}$$ (we can do whatever we want with it) as: 
 
-![notes-on-diffusion-models](/assets/img/posts/notes-on-diffusion-models/notion-3bc815d2.png)
+![notes-on-diffusion-models](/assets/img/posts/notes-on-diffusion-models/notion-3bc815d2904b80b39bb5d36ecb393bfc.png)
 
 Then $$L_{t-1}$$ simplifies to 
 
-![notes-on-diffusion-models](/assets/img/posts/notes-on-diffusion-models/notion-3bc815d2.png)
+![notes-on-diffusion-models](/assets/img/posts/notes-on-diffusion-models/notion-3bc815d2904b80e79055f37e489ef8f0.png)
 
 <details class="notion-toggle" markdown="1">
 <summary markdown="span">**Proof**</summary>
 
-![notes-on-diffusion-models](/assets/img/posts/notes-on-diffusion-models/notion-3bc815d2.png)
+![notes-on-diffusion-models](/assets/img/posts/notes-on-diffusion-models/notion-3bc815d2904b80c299a8d9975dddb2a7.png)
 
 </details>
 
@@ -166,7 +166,7 @@ Once the noise prediction network ϵ_θ is trained, we can generate new samples 
 
 **UPDATE RULES** Starting from pure noise $$x_T ~ N(0, I)$$, we iterate backward from $$t=T$$ to $$t=1$$. Each step $$x_{t-1}$$ is sampled from the learned reverse distribution $$p_θ(x_{t-1} \vert x_t).$$ Using the `ϵ`-prediction parameterization, the update step is:  
 
-![notes-on-diffusion-models](/assets/img/posts/notes-on-diffusion-models/notion-3bc815d2.png)
+![notes-on-diffusion-models](/assets/img/posts/notes-on-diffusion-models/notion-3bc815d2904b801d8f50c4e5a758f7cf.png)
 
 **TWO CHOICE FROM AMOUNT OF STOCHASTICITY** $$σ_t$$. The term $$σ_t$$ controls the amount of stochasticity in the reverse step. There are two common choices:
 
@@ -189,11 +189,11 @@ $$
 
 substitute $$\epsilon \to  \epsilon_{\theta}$$:
 
-![notes-on-diffusion-models](/assets/img/posts/notes-on-diffusion-models/notion-3bc815d2.png)
+![notes-on-diffusion-models](/assets/img/posts/notes-on-diffusion-models/notion-3bc815d2904b8033b341fd0c2b09010d.png)
 
 ### 4. Additional: Content-Detail Tradeoff
 
-![notes-on-diffusion-models](/assets/img/posts/notes-on-diffusion-models/notion-3bc815d2.png)
+![notes-on-diffusion-models](/assets/img/posts/notes-on-diffusion-models/notion-3bc815d2904b80fbba31e9d42a0ff46b.png)
 
 
 
@@ -300,11 +300,11 @@ To use the reverse SDE for generation (reverse process), we must know the score 
 
 **INTRACTABILITY OF MARGINAL SCORE.** Directly learning the marginal score is intractable:
 
-![notes-on-diffusion-models](/assets/img/posts/notes-on-diffusion-models/notion-3bc815d2.png)
+![notes-on-diffusion-models](/assets/img/posts/notes-on-diffusion-models/notion-3bc815d2904b80be81d0f865d0e270e5.png)
 
 The key reason why is intractable is that we cannot compute $$q_t(x_t)$$ as, to do so, we need to compute $$q_t(x_t) = ∫ q_t(x_t \vert x_0)q_0(x_0)dx_0$$ which is a is a complex mixture over the entire dataset, making its score computationally infeasible. Indeed, one can show that the score is equal to this via the **Fisher Identites:**
 
-![notes-on-diffusion-models](/assets/img/posts/notes-on-diffusion-models/notion-3bc815d2.png)
+![notes-on-diffusion-models](/assets/img/posts/notes-on-diffusion-models/notion-3bc815d2904b805e8713efbcf0158195.png)
 
 Now while the conditional score $$\nabla_{x_t} \log q_t(x_t \vert x_0)$$ is closed form as $$ q_t(x_t \vert x_0)$$ is gaussian (showed above), the expectation is on a distribution we do not know and is intractable $$q(x_0 \vert x_t)$$ (if we knew it we could directly generate with it )
 
@@ -313,15 +313,15 @@ Now while the conditional score $$\nabla_{x_t} \log q_t(x_t \vert x_0)$$ is clos
 
 Open the derivative + law of total probability
 
-![notes-on-diffusion-models](/assets/img/posts/notes-on-diffusion-models/notion-3bc815d2.png)
+![notes-on-diffusion-models](/assets/img/posts/notes-on-diffusion-models/notion-3bc815d2904b8027bdfeeb44611cecdc.png)
 
 Leibniz rule interchange integral and delta 
 
-![notes-on-diffusion-models](/assets/img/posts/notes-on-diffusion-models/notion-3bc815d2.png)
+![notes-on-diffusion-models](/assets/img/posts/notes-on-diffusion-models/notion-3bc815d2904b803f9074cf82ae0874d9.png)
 
 Use the log trick to rewrite the delta of prob distribution
 
-![notes-on-diffusion-models](/assets/img/posts/notes-on-diffusion-models/notion-3bc815d2.png)
+![notes-on-diffusion-models](/assets/img/posts/notes-on-diffusion-models/notion-3bc815d2904b80819635c4557df3092f.png)
 
 </details>
 
@@ -347,7 +347,7 @@ $$
 
 **LEARNABILITY OF CONDITIONAL SCORE** Now the conditional score is much easier to learn as we target this
 
-![notes-on-diffusion-models](/assets/img/posts/notes-on-diffusion-models/notion-3bc815d2.png)
+![notes-on-diffusion-models](/assets/img/posts/notes-on-diffusion-models/notion-3bc815d2904b80969752df3bf02a4693.png)
 
 This is easier because thanks to the gaussianity of $$q_t(x_t \vert x_0)$$ we can rewrite the conditional score in a closed form:
 
@@ -367,15 +367,15 @@ $$
 
 Therefore, we can plug this formula into $$\frac{1}{\sigma_t^{2}}\left(x_t-\alpha_t x_0\right)$$ and we get that the conditional score is:
 
-![notes-on-diffusion-models](/assets/img/posts/notes-on-diffusion-models/notion-3bc815d2.png)
+![notes-on-diffusion-models](/assets/img/posts/notes-on-diffusion-models/notion-3bc815d2904b80288b86c2b2eb6b307d.png)
 
 Now if we make an extra step and we parametrize the score predictor to be a function of the noise: 
 
-![notes-on-diffusion-models](/assets/img/posts/notes-on-diffusion-models/notion-3bc815d2.png)
+![notes-on-diffusion-models](/assets/img/posts/notes-on-diffusion-models/notion-3bc815d2904b80578641e2abb315daae.png)
 
 We get the same predictor of the $$L_{t-1}$$ of the previous chapter:
 
-![notes-on-diffusion-models](/assets/img/posts/notes-on-diffusion-models/notion-3bc815d2.png)
+![notes-on-diffusion-models](/assets/img/posts/notes-on-diffusion-models/notion-3bc815d2904b801fa0f1fdb56b1f8f9b.png)
 
 **SAMPLING** Once we trained $$s_{\theta}$$ or $$\epsilon_{\theta}$$ we can simply plug them in the reverse drift and generate:
 
@@ -434,7 +434,7 @@ Flow Matching has emerged as a conceptually simpler alternative to diffusion mod
 
 #### 5.2. DDPM vs. SDE/Score Perspective
 
-![notes-on-diffusion-models](/assets/img/posts/notes-on-diffusion-models/notion-3bc815d2.png)
+![notes-on-diffusion-models](/assets/img/posts/notes-on-diffusion-models/notion-3bc815d2904b80f0a612cd33f6df263c.png)
 
 | **Feature** | **DDPM View (Discrete)** | **SDE/Score View (Continuous)** |
 |---|---|---|
@@ -475,7 +475,7 @@ The noising and denoising processes can be understood from a frequency perspecti
 
 Reweighted ELBO allows diffusion models to spend more capacity on low-frequency components (meaning more semantical aspects instead of the minute details)
 
-![notes-on-diffusion-models](/assets/img/posts/notes-on-diffusion-models/notion-3bc815d2.png)
+![notes-on-diffusion-models](/assets/img/posts/notes-on-diffusion-models/notion-3bc815d2904b8089b3cdfe7ae1be5584.png)
 
 
 
@@ -499,14 +499,14 @@ Representation Alignment (REPA) align the diffusion model's intermediate feature
 </div>
 <div class="notion-column" style="flex: 44 1 0%" markdown="1">
 
-![notes-on-diffusion-models](/assets/img/posts/notes-on-diffusion-models/notion-3bc815d2.png)
+![notes-on-diffusion-models](/assets/img/posts/notes-on-diffusion-models/notion-3bc815d2904b8014a8cef253fbe42967.png)
 
 </div>
 </div>
 
 #### Generative Learning Trilemma
 
-![notes-on-diffusion-models](/assets/img/posts/notes-on-diffusion-models/notion-3bc815d2.png)
+![notes-on-diffusion-models](/assets/img/posts/notes-on-diffusion-models/notion-3bc815d2904b8002b934e942598c87c0.png)
 
 GANs are fast and high quality but suffer mode collapse.
 
@@ -520,13 +520,13 @@ three main approaches to accelerate diffusion:
 
 1. **Fast ODE/SDE Solvers:** Because the sampling process involves iterative steps, advanced solvers (like DPM-Solver++ or Heun’s Method) can approximate the Ordinary Differential Equation (ODE) trajectories more efficiently, reducing the number of steps required (e.g., from hundreds down to 15-20 steps).
 
-![notes-on-diffusion-models](/assets/img/posts/notes-on-diffusion-models/notion-3bc815d2.png)
+![notes-on-diffusion-models](/assets/img/posts/notes-on-diffusion-models/notion-3bc815d2904b80f19bfbd085f7dc91f8.png)
 
 1. **Trajectory Distillation:** This method learns a function that reproduces the multi-step mapping of a teacher model in a single step (e.g., consistency models). While it provides a one-to-one mapping, it is difficult to reduce the process to very few steps.
 
-![notes-on-diffusion-models](/assets/img/posts/notes-on-diffusion-models/notion-3bc815d2.png)
+![notes-on-diffusion-models](/assets/img/posts/notes-on-diffusion-models/notion-3bc815d2904b807f957dc38ef0012475.png)
 
 1. **Variational Distillation:** This approach matches the student model's distribution to the teacher's via a variational objective (VDKL). It enables very fast, one-step generation but incurs extra compute costs and risks mode collapse.
     The core idea of DMD distillation is to minimize the KL divergence between the output distributions of the distilled model and the original model
 
-    ![notes-on-diffusion-models](/assets/img/posts/notes-on-diffusion-models/notion-3bc815d2.png)
+    ![notes-on-diffusion-models](/assets/img/posts/notes-on-diffusion-models/notion-3bc815d2904b80f6b609f758a0af7cad.png)

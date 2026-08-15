@@ -20,7 +20,7 @@ T: We begin by **SFT/IFT** (instruction or supervised fine-tuning). The aim is t
 <div class="notion-columns" markdown="1">
 <div class="notion-column" style="flex: 50 1 0%" markdown="1">
 
-![first-dialogue-on-rlhf-with-a-bit-of-vae](/assets/img/posts/first-dialogue-on-rlhf-with-a-bit-of-vae/notion-3bd815d2.png)
+![first-dialogue-on-rlhf-with-a-bit-of-vae](/assets/img/posts/first-dialogue-on-rlhf-with-a-bit-of-vae/notion-3bd815d2904b8091a5e8ff974cf66350.png)
 
 _Fig 1.,_ a reward model is a machine that takes text and tells you how good it was.
 
@@ -48,7 +48,7 @@ T: Both believes that most of the skills are acquired during pertaining. Yet, SA
 </div>
 <div class="notion-column" style="flex: 50 1 0%" markdown="1">
 
-![first-dialogue-on-rlhf-with-a-bit-of-vae](/assets/img/posts/first-dialogue-on-rlhf-with-a-bit-of-vae/notion-3bd815d2.png)
+![first-dialogue-on-rlhf-with-a-bit-of-vae](/assets/img/posts/first-dialogue-on-rlhf-with-a-bit-of-vae/notion-3bd815d2904b80cb80b3f8561b26af7d.png)
 
 _Fig. 2,_ an image of a car chassis as I had no clue about what it was. I would like to press a button to destroy F1 from the collective memory. 
 
