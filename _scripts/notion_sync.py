@@ -136,7 +136,9 @@ def fetch_children(block_id: str) -> list:
 def download_image(url: str, slug: str, block_id: str) -> str:
     """Save a (possibly expiring) Notion image URL locally; return site path."""
     ext = os.path.splitext(urllib.parse.urlparse(url).path)[1] or ".png"
-    name = f"notion-{block_id[:8]}{ext}"
+    # Notion IDs are time-ordered, so nearby blocks share a long prefix; use
+    # the full id or same-page images collide onto one file.
+    name = f"notion-{block_id.replace('-', '')}{ext}"
     dest = ASSETS_DIR / slug / name
     dest.parent.mkdir(parents=True, exist_ok=True)
     try:
@@ -308,6 +310,8 @@ def convert_page(page: dict) -> bool:
 
     slug = slugify(meta["title"])
     print(f"  converting: {meta['title']} -> {meta['date']}-{slug}.md")
+    if (ASSETS_DIR / slug).is_dir():
+        shutil.rmtree(ASSETS_DIR / slug)  # images and background are re-downloaded below
     body = "\n".join(blocks_to_md(fetch_children(meta["id"]), slug)).strip() + "\n"
     if not meta["description"]:
         first_par = next((line for line in body.split("\n") if line.strip() and not line.startswith(("#", "!", ">", "```"))), "")
