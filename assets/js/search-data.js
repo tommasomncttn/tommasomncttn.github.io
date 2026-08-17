@@ -30,15 +30,15 @@ ninja.data = [{
           handler: () => {
             window.location.href = "/cv/";
           },
-        },{id: "post-first-dialogue-on-rlhf-with-a-bit-of-vae",
+        },{id: "post-first-dialogue-on-rlhf-with-a-bit-of-vae-reinforce",
         
-          title: "First Dialogue on RLHF (with a bit of VAE)",
+          title: "First Dialogue on RLHF (with a bit of VAE): REINFORCE",
         
         description: "Random walks in RLHF exposed via a dialogue format.",
         section: "Posts",
         handler: () => {
           
-            window.location.href = "/blog/2026/first-dialogue-on-rlhf-with-a-bit-of-vae/";
+            window.location.href = "/blog/2026/first-dialogue-on-rlhf-with-a-bit-of-vae-reinforce/";
           
         },
       },{id: "post-notes-on-world-models",
