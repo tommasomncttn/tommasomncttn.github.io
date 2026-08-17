@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "First Dialogue on RLHF (with a bit of VAE)"
+title: "First Dialogue on RLHF (with a bit of VAE): REINFORCE"
 date: 2026-08-15
 description: "Random walks in RLHF exposed via a dialogue format."
 tags: tutorial ml
@@ -9,9 +9,9 @@ related_posts: false
 render_with_liquid: false
 toc:
   sidebar: left
-background: /assets/img/posts/first-dialogue-on-rlhf-with-a-bit-of-vae/background.jpg
+background: /assets/img/posts/first-dialogue-on-rlhf-with-a-bit-of-vae-reinforce/background.jpg
 notion_id: 3bd815d2-904b-80bd-9c49-ebfd9ef27716
-notion_last_edited: 2026-08-15T12:59:00.000Z
+notion_last_edited: 2026-08-16T10:46:00.000Z
 ---
 _P: In which stage can you decompose the most common post-training pipelines?_
 
@@ -20,7 +20,7 @@ T: We begin by **SFT/IFT** (instruction or supervised fine-tuning). The aim is t
 <div class="notion-columns" markdown="1">
 <div class="notion-column" style="flex: 50 1 0%" markdown="1">
 
-![first-dialogue-on-rlhf-with-a-bit-of-vae](/assets/img/posts/first-dialogue-on-rlhf-with-a-bit-of-vae/notion-3bd815d2904b8091a5e8ff974cf66350.png)
+![first-dialogue-on-rlhf-with-a-bit-of-vae-reinforce](/assets/img/posts/first-dialogue-on-rlhf-with-a-bit-of-vae-reinforce/notion-3bd815d2904b8091a5e8ff974cf66350.png)
 
 _Fig 1.,_ a reward model is a machine that takes text and tells you how good it was.
 
@@ -36,7 +36,7 @@ The third step is RLVR, where we boost the actual performance of the model on ve
 
 _P: For example, in which way could RLHF improve the style of the answer of a simple SFT model?_
 
-T: Well, for example if I ask to the base model “Who is Franco Battiato?” it would answer directly (“Franco Battiato is the Italian greatest songwriter of 20th century” ) and then start to speak about random topics related to its music until it its the `token max` threshold. Instead, the RLHF model would simply give me a synthetic answer.
+T: Well, for example if I ask to the base model “Who is Franco Battiato?” it would answer directly (“Franco Battiato is the Italian greatest songwriter of 20th century” ) and then start to speak about random topics related to its music until it hits the `token max` threshold. Instead, the RLHF model would simply give me a synthetic answer.
 
 _P: What is the difference between the Superficial Alignment Hypothesis [2] and the Elicitation theory?_ 
 
@@ -48,7 +48,7 @@ T: Both believes that most of the skills are acquired during pertaining. Yet, SA
 </div>
 <div class="notion-column" style="flex: 50 1 0%" markdown="1">
 
-![first-dialogue-on-rlhf-with-a-bit-of-vae](/assets/img/posts/first-dialogue-on-rlhf-with-a-bit-of-vae/notion-3bd815d2904b80cb80b3f8561b26af7d.png)
+![first-dialogue-on-rlhf-with-a-bit-of-vae-reinforce](/assets/img/posts/first-dialogue-on-rlhf-with-a-bit-of-vae-reinforce/notion-3bd815d2904b80cb80b3f8561b26af7d.png)
 
 _Fig. 2,_ an image of a car chassis as I had no clue about what it was. I would like to press a button to destroy F1 from the collective memory. 
 
@@ -63,7 +63,7 @@ $$
 \operatorname{reward}  =  \operatorname{RM(generated-text)}
 $$
 
-Sampling is not a differentiable function. Yet, there is a known trick in RL to solve this problem: **policy gradient methods.**
+Sampling is not a differentiable function. Yet, there is a known trick in RL to solve this problem: **policy gradient methods (REINFORCE).**
 
 _P: Can you elaborate a bit on the core methodology to differentiate through sampling via_ 
 
@@ -135,7 +135,7 @@ $$
 \underbrace{\nabla_\theta\, \mathbb{E}_{\mathbf y \sim \pi_\theta}\big[R(\mathbf y)\big]}_{\text{the gradient of the true objective}} = \mathbb{E}_{\mathbf y \sim \pi_\theta}\Big[\underbrace{R(\mathbf y)\,\nabla_\theta \log \pi_\theta(\mathbf y)}_{\text{what recipe B computes per sample}}\Big] \approx \sum_{\mathbf y \sim \pi_\theta}\Big[\underbrace{R(\mathbf y)\,\nabla_\theta \log \pi_\theta(\mathbf y)}_{\text{what recipe B computes per sample}}\Big] 
 $$
 
-A closing remark: the reason why this new objective is equivalent to optimize the weights with steps that increase chance of good samples, is that is is a weighted sum where the weights are given via $$R(\mathbf y)$$. If I am trying to optimize $$\mathcal L = \mathbf c^{\top} f_{\theta}(\mathbf y)$$ by linearity of expectation my gradient will be:
+A closing remark: the reason why this new objective is equivalent to optimize the weights with steps that increase chance of good samples, is that is is a weighted sum where the weights are given via $$R(\mathbf y)$$. If I am trying to optimize $$\mathcal L = \mathbf c^{\top} f_{\theta}(\mathbf y)$$ by linearity of differentiation my gradient will be:
 
 $$
 \nabla_\theta \mathcal{L} = \mathbf{c}^\top \nabla_\theta f_\theta(\mathbf{y}) = \sum_{i} c_i \, \nabla_\theta \big[f_\theta(\mathbf{y})\big]_i
