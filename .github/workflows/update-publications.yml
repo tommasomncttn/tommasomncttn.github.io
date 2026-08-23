@@ -5,20 +5,24 @@ on:
     - cron: "0 6 * * 1" # Monday morning
   workflow_dispatch:
 
+permissions:
+  contents: write
+  actions: write # to dispatch the deploy workflow after committing
+
 jobs:
   update-publications:
     runs-on: ubuntu-latest
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
       # See CUSTOMIZE.md for details on how to set up PAT so this commit
       # also triggers the deploy workflow:
       #        with:
       #          token: ${{ secrets.PAT }}
 
       - name: Set up Python
-        uses: actions/setup-python@v4
+        uses: actions/setup-python@v5
         with:
           python-version: "3.13"
 
@@ -32,7 +36,7 @@ jobs:
         run: |
           set +e
           echo "🚀 Syncing papers.bib with Google Scholar..."
-          timeout 300 python bin/update_publications.py
+          timeout 300 python -u bin/update_publications.py
           status=$?
           if [ $status -eq 0 ]; then
             echo "✅ Publications sync succeeded." >> $GITHUB_STEP_SUMMARY
@@ -47,10 +51,22 @@ jobs:
           git config --local user.name "GitHub Actions"
 
       - name: Commit and push if changed
+        id: commit
         run: |
           git add _bibliography/papers.bib assets/img/publication_preview
-          git diff --staged --quiet || (
+          if git diff --staged --quiet; then
+            echo "changed=false" >> $GITHUB_OUTPUT
+          else
             echo "📤 Committing and pushing new publications..."
             git commit -m "Add new publications from Google Scholar"
             git push
-          )
+            echo "changed=true" >> $GITHUB_OUTPUT
+          fi
+
+      # Bot commits made with GITHUB_TOKEN don't trigger the push-based deploy,
+      # so dispatch the deploy explicitly when the sync changed something.
+      - name: Trigger site deploy
+        if: steps.commit.outputs.changed == 'true'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh workflow run deploy.yml --ref main -R ${{ github.repository }}
