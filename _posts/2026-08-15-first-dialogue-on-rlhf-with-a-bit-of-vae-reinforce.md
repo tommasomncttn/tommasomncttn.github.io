@@ -11,7 +11,7 @@ toc:
   sidebar: left
 background: /assets/img/posts/first-dialogue-on-rlhf-with-a-bit-of-vae-reinforce/background.jpg
 notion_id: 3bd815d2-904b-80bd-9c49-ebfd9ef27716
-notion_last_edited: 2026-08-16T10:46:00.000Z
+notion_last_edited: 2026-08-30T16:39:00.000Z
 ---
 _P: In which stage can you decompose the most common post-training pipelines?_
 
