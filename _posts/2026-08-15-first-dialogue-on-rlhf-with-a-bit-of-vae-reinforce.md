@@ -11,7 +11,7 @@ toc:
   sidebar: left
 background: /assets/img/posts/first-dialogue-on-rlhf-with-a-bit-of-vae-reinforce/background.jpg
 notion_id: 3bd815d2-904b-80bd-9c49-ebfd9ef27716
-notion_last_edited: 2026-08-30T16:39:00.000Z
+notion_last_edited: 2026-09-03T15:42:00.000Z
 ---
 _P: In which stage can you decompose the most common post-training pipelines?_
 
@@ -132,7 +132,7 @@ The core idea is that we stop optimizing $$\theta$$ to improve the expected rewa
 On the one hand, this is now possible as the gradient is inside the sampling, so we can simply kill the sampling part via a monte carlo approximation. On the other hand, this core identity $$\nabla_\theta \pi_\theta = \pi_\theta \, \nabla_\theta \log \pi_\theta$$ shows us that is the same (do not be scare it is the classic $$\frac{d \log f(x)} {dx} = \frac 1 x \frac{d f(x)} {d x}\to \frac{d f(x)} {d x} = x\frac{d \log f(x)} {dx}$$): 
 
 $$
-\underbrace{\nabla_\theta\, \mathbb{E}_{\mathbf y \sim \pi_\theta}\big[R(\mathbf y)\big]}_{\text{the gradient of the true objective}} = \mathbb{E}_{\mathbf y \sim \pi_\theta}\Big[\underbrace{R(\mathbf y)\,\nabla_\theta \log \pi_\theta(\mathbf y)}_{\text{what recipe B computes per sample}}\Big] \approx \sum_{\mathbf y \sim \pi_\theta}\Big[\underbrace{R(\mathbf y)\,\nabla_\theta \log \pi_\theta(\mathbf y)}_{\text{what recipe B computes per sample}}\Big] 
+\underbrace{\nabla_\theta\, \mathbb{E}_{\mathbf y \sim \pi_\theta}\big[R(\mathbf y)\big]}_{\text{the gradient of the true objective}} = \mathbb{E}_{\mathbf y \sim \pi_\theta}\Big[\underbrace{R(\mathbf y)\,\nabla_\theta \log \pi_\theta(\mathbf y)}_{\text{what recipe B computes per sample}}\Big] \approx \frac 1 N \sum_{\mathbf y \sim \pi_\theta}\Big[\underbrace{R(\mathbf y)\,\nabla_\theta \log \pi_\theta(\mathbf y)}_{\text{what recipe B computes per sample}}\Big] 
 $$
 
 A closing remark: the reason why this new objective is equivalent to optimize the weights with steps that increase chance of good samples, is that is is a weighted sum where the weights are given via $$R(\mathbf y)$$. If I am trying to optimize $$\mathcal L = \mathbf c^{\top} f_{\theta}(\mathbf y)$$ by linearity of differentiation my gradient will be:
