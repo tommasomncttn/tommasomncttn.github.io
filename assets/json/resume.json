@@ -4,7 +4,7 @@
     "label": "MSc Data Science Student & Researcher",
     "email": "tommaso.mencattini@epfl.ch",
     "url": "",
-    "summary": "MSc student in Data Science at EPFL with research experience at ISTA, ETH Zürich, and GLADIA. My work focuses on large language models, interpretability, causal inference, and AI safety. First-author papers at ICLR, ICML, and ACL, plus publications at NeurIPS workshops and ECAI. Co-PI of a Coefficient Giving-funded research team on activation steering at Rome AI Safety.",
+    "summary": "MSc student in Data Science at EPFL, currently Applied Scientist Intern at AWS (Agentic-AI Foundational Research), with research experience at ISTA, ETH Zürich, and GLADIA. My work focuses on large language models, interpretability, causal inference, and AI safety. First-author papers at NeurIPS, ICLR (Oral), ICML, and ACL, plus publications at EMNLP, COLM, NeurIPS workshops and ECAI. Co-PI of a Coefficient Giving-funded research team on activation steering at Rome AI Safety.",
     "location": {
       "city": "Lausanne",
       "countryCode": "CH",
@@ -25,6 +25,18 @@
   },
   "work": [
     {
+      "name": "Amazon Web Services (AWS)",
+      "position": "Applied Scientist Intern",
+      "url": "https://aws.amazon.com",
+      "location": "Los Angeles, CA, USA",
+      "startDate": "2026-10-01",
+      "endDate": "",
+      "summary": "Applied Scientist Intern in the AWS Agentic-AI Foundational Research team.",
+      "highlights": [
+        "Research on foundational methods for agentic AI systems."
+      ]
+    },
+    {
       "name": "Rome AI Safety (RAIS)",
       "position": "Co-Principal Investigator",
       "url": "",
@@ -42,10 +54,11 @@
       "url": "https://ista.ac.at",
       "location": "Vienna, Austria",
       "startDate": "2025-07-01",
-      "endDate": "",
-      "summary": "Research on causality and multimodal foundation models within the Locatello Group (PI: Francesco Locatello).",
+      "endDate": "2026-09-30",
+      "summary": "Research on causality and mechanistic interpretability within the Locatello Group (PI: Francesco Locatello).",
       "highlights": [
-        "Co-first author of an ICLR 2026 Oral (top 1.2%): a framework (theory + library) for unsupervised causal effect discovery in RCTs."
+        "Co-first author of an ICLR 2026 Oral (top 1.2%): a framework (theory + library) for unsupervised causal effect discovery in RCTs.",
+        "First author of a NeurIPS 2026 paper introducing the Rate-Distortion-Polysemanticity tradeoff in sparse autoencoders."
       ]
     },
     {
@@ -54,11 +67,12 @@
       "url": "https://gladia.ai",
       "location": "Rome, Italy",
       "startDate": "2024-04-01",
-      "endDate": "",
+      "endDate": "2026-09-30",
       "summary": "Research on scalable model merging, interpretability, and ability estimation for large language models (PI: Emanuele Rodolà).",
       "highlights": [
         "Scaled evolutionary model merging of LLMs to consumer GPUs and developed ability-estimation theory via Item Response Theory: 50× faster, 2% of the data, 85% performance retained. Two first-author papers at ICML 2025 and ACL 2025.",
-        "Co-first author of an ICLR 2026 paper proving injectivity of LLM hidden representations and presenting the first exact inversion algorithm (5M views on the tweeprint)."
+        "Co-first author of an ICLR 2026 paper proving injectivity of LLM hidden representations and presenting the first exact inversion algorithm (5M views on the tweeprint).",
+        "Co-authored papers at EMNLP 2026 (Main and Findings) and COLM 2026 on steering vectors, diffusion language models, and multi-objective model merging."
       ]
     },
     {
@@ -126,7 +140,9 @@
       "startDate": "2024-09-01",
       "endDate": "",
       "score": "GPA: 5.7/6",
-      "courses": ["Coursework focused on the Mathematics of data science"]
+      "courses": [
+        "Coursework focused on the Mathematics of data science"
+      ]
     },
     {
       "institution": "Vrije Universiteit Amsterdam",
@@ -136,7 +152,9 @@
       "startDate": "2021-09-01",
       "endDate": "2024-07-01",
       "score": "GPA: 9.2/10",
-      "courses": ["Honours Programme (30 credits of advanced coursework, e.g. PDEs)"]
+      "courses": [
+        "Honours Programme (30 credits of advanced coursework, e.g. PDEs)"
+      ]
     },
     {
       "institution": "BlueDot Impact",
@@ -145,7 +163,9 @@
       "studyType": "Summer School (3 months)",
       "startDate": "2024-06-01",
       "endDate": "2024-08-31",
-      "courses": ["Studied sparse autoencoder diffing and transfer; work accepted at the UniReps Workshop @ NeurIPS 2024 (blog post track)."]
+      "courses": [
+        "Studied sparse autoencoder diffing and transfer; work accepted at the UniReps Workshop @ NeurIPS 2024 (blog post track)."
+      ]
     },
     {
       "institution": "Sapienza University of Rome",
@@ -154,7 +174,9 @@
       "studyType": "Bachelor’s Degree",
       "startDate": "2018-09-01",
       "endDate": "2021-09-01",
-      "courses": ["Focused on formal logic and philosophy of language"]
+      "courses": [
+        "Focused on formal logic and philosophy of language"
+      ]
     }
   ],
   "awards": [
@@ -177,11 +199,19 @@
   "interests": [
     {
       "name": "AI Safety",
-      "keywords": ["Interpretability", "Sparse Autoencoders", "Causal Models"]
+      "keywords": [
+        "Interpretability",
+        "Sparse Autoencoders",
+        "Causal Models"
+      ]
     },
     {
       "name": "Theoretical ML",
-      "keywords": ["Representations", "Optimization", "Information Theory"]
+      "keywords": [
+        "Representations",
+        "Optimization",
+        "Information Theory"
+      ]
     }
   ],
   "references": []
