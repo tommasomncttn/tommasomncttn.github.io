@@ -1,5 +1,5 @@
 metadata:
-  last_updated: '2026-11-13'
+  last_updated: '2026-11-18'
 papers:
   nJuzaPsAAAAJ:2osOgNQ5qMEC:
     citations: 6
@@ -22,11 +22,11 @@ papers:
     title: The Rate-Distortion-Polysemanticity Tradeoff in SAEs
     year: '2026'
   nJuzaPsAAAAJ:UeHWp8X0CEIC:
-    citations: 44
+    citations: 45
     title: Language Models are Injective and Hence Invertible
     year: '2025'
   nJuzaPsAAAAJ:WF5omc3nYNoC:
-    citations: 1
+    citations: 2
     title: Steering Vectors are an Adversarial Attack Surface
     year: '2026'
   nJuzaPsAAAAJ:Y0pCki6q_DkC:
